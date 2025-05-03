@@ -3,7 +3,7 @@
  */
 package com.mutaki.hexadraw;
 
-import static com.mutaki.hexadraw.ComponentNames.ADD_DIAGRAM_BTN;
+import static com.mutaki.hexadraw.ComponentNames.CREATE_CIRCUIT_BTN;
 import static com.mutaki.hexadraw.ComponentNames.SAVE_BTN;
 
 import java.awt.BorderLayout;
@@ -43,7 +43,7 @@ public class App {
 
 	createCircuitBtn.addActionListener(this::handleOpen);
 	// Names help identify components for window licker
-	createCircuitBtn.setName(ADD_DIAGRAM_BTN);
+	createCircuitBtn.setName(CREATE_CIRCUIT_BTN);
 	saveBtn.setName(SAVE_BTN);
 
 	frame.setVisible(true);

@@ -38,7 +38,7 @@ public class ApplicationRunner {
     }
 
     public void createCircuit(String circuitName) {
-	window.button(ComponentNames.ADD_DIAGRAM_BTN).click();
+	window.button(ComponentNames.CREATE_CIRCUIT_BTN).click();
     }
 
     public void save() {
