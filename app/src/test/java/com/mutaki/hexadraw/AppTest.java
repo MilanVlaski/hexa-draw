@@ -10,8 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.mutaki.hexadraw.JsonCircuitFileReader;
-
 public class AppTest {
 
     ApplicationRunner runner = new ApplicationRunner();
@@ -29,12 +27,12 @@ public class AppTest {
     }
 
     @Test
-    void Window_has_clickable_add_diagram_button() {
+    void Window_has_clickable_create_circuit_button() {
 	runner.createCircuit(circuitName);
     }
 
     @Test
-    void Creates_diagram_then_saves_it() throws IOException {
+    void Creates_circuit_then_saves_it() throws IOException {
 	var tempdir = Files.createTempDirectory("temp");
 	var circuitFilePath = tempdir.resolve(circuitName + ".json");
 
