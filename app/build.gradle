@@ -13,5 +13,5 @@ dependencies {
 }
 
 application {
-    mainClass = 'com.mutaki.app.App'
+    mainClass = 'com.mutaki.hexadraw.App'
 }
