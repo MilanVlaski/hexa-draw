@@ -7,8 +7,7 @@ plugins {
 }
 
 dependencies {
-	implementation 'com.googlecode.windowlicker:windowlicker-swing:r268'
-    implementation 'org.apache.commons:commons-text'
+    testImplementation 'org.assertj:assertj-swing:3.17.1'
     implementation project(':utilities')
 }
 

@@ -3,6 +3,8 @@
  */
 package com.mutaki.app;
 
+import static com.mutaki.app.ComponentNames.ADD_DIAGRAM_BTN;
+
 import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -22,6 +24,7 @@ public class App {
 
     public App() {
 	frame = new JFrame("Diagram App");
+	frame.setName(ComponentNames.MAIN_FRAME);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setSize(800, 600);
 	frame.setLocationRelativeTo(null);
@@ -36,6 +39,8 @@ public class App {
 	frame.add(topPanel, BorderLayout.NORTH);
 
 	openBtn.addActionListener(this::handleOpen);
+	// Names help identify components for window licker
+	openBtn.setName(ADD_DIAGRAM_BTN);
 
 	frame.setVisible(true);
     }
