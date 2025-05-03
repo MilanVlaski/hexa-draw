@@ -7,11 +7,11 @@ plugins {
 }
 
 dependencies {
+	implementation 'com.googlecode.windowlicker:windowlicker-swing:r268'
     implementation 'org.apache.commons:commons-text'
     implementation project(':utilities')
 }
 
 application {
-    // Define the main class for the application.
-    mainClass = 'org.example.app.App'
+    mainClass = 'com.mutaki.app.App'
 }
