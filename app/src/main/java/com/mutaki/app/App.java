@@ -4,6 +4,7 @@
 package com.mutaki.app;
 
 import static com.mutaki.app.ComponentNames.ADD_DIAGRAM_BTN;
+import static com.mutaki.app.ComponentNames.SAVE_BTN;
 
 import java.awt.BorderLayout;
 import java.awt.Graphics;
@@ -41,6 +42,7 @@ public class App {
 	openBtn.addActionListener(this::handleOpen);
 	// Names help identify components for window licker
 	openBtn.setName(ADD_DIAGRAM_BTN);
+	saveBtn.setName(SAVE_BTN);
 
 	frame.setVisible(true);
     }

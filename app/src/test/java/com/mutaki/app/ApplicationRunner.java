@@ -1,8 +1,9 @@
 package com.mutaki.app;
 
+import java.nio.file.Path;
+
 import org.assertj.swing.core.BasicRobot;
 import org.assertj.swing.core.Robot;
-import org.assertj.swing.core.matcher.JButtonMatcher;
 import org.assertj.swing.finder.WindowFinder;
 import org.assertj.swing.fixture.FrameFixture;
 
@@ -36,7 +37,7 @@ public class ApplicationRunner {
 	thread.start();
     }
 
-    public void addDiagram() {
+    public void addDiagram(String circuitName) {
 	window.button(ComponentNames.ADD_DIAGRAM_BTN).click();
     }
 
@@ -44,12 +45,13 @@ public class ApplicationRunner {
 	window.button(ComponentNames.SAVE_BTN).click();
     }
 
-    public void saveButtonHasText(String text) {
-	window.button(JButtonMatcher.withText(text)).requireVisible();
-    }
-
     public void stop() {
 	if (window != null)
 	    window.cleanUp();
+    }
+
+    public void saveToLocation(Path path) {
+	// TODO Auto-generated method stub
+
     }
 }
