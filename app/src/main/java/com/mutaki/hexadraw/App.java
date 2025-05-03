@@ -7,7 +7,9 @@ import static com.mutaki.hexadraw.ComponentNames.ADD_DIAGRAM_BTN;
 import static com.mutaki.hexadraw.ComponentNames.SAVE_BTN;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
@@ -24,24 +26,24 @@ public class App {
     private JPanel drawPanel;
 
     public App() {
-	frame = new JFrame("Diagram App");
+	frame = new JFrame("Hexa-Draw");
 	frame.setName(ComponentNames.MAIN_FRAME);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setSize(800, 600);
 	frame.setLocationRelativeTo(null);
 
-	JButton openBtn = new JButton("Open diagram");
+	JButton createCircuitBtn = new JButton("Create Circuit");
 	JButton saveBtn = new JButton("Save");
 
 	JPanel topPanel = new JPanel();
-	topPanel.add(openBtn);
+	topPanel.add(createCircuitBtn);
 	topPanel.add(saveBtn);
 
 	frame.add(topPanel, BorderLayout.NORTH);
 
-	openBtn.addActionListener(this::handleOpen);
+	createCircuitBtn.addActionListener(this::handleOpen);
 	// Names help identify components for window licker
-	openBtn.setName(ADD_DIAGRAM_BTN);
+	createCircuitBtn.setName(ADD_DIAGRAM_BTN);
 	saveBtn.setName(SAVE_BTN);
 
 	frame.setVisible(true);
@@ -50,9 +52,12 @@ public class App {
     private void handleOpen(ActionEvent e) {
 	if (drawPanel == null) {
 	    drawPanel = new JPanel() {
+		// just for show
 		protected void paintComponent(Graphics g) {
 		    super.paintComponent(g);
-		    g.drawLine(10, 10, 100, 100);
+		    Graphics2D g2d = (Graphics2D) g;
+		    g2d.setFont(new Font("Arial", Font.PLAIN, 12));
+		    g2d.drawString("Circuit opened!", 50, 50);
 		}
 	    };
 	    frame.add(drawPanel, BorderLayout.CENTER);

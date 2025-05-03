@@ -30,7 +30,7 @@ public class AppTest {
 
     @Test
     void Window_has_clickable_add_diagram_button() {
-	runner.addDiagram(circuitName);
+	runner.createCircuit(circuitName);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class AppTest {
 	var tempdir = Files.createTempDirectory("temp");
 	var circuitFilePath = tempdir.resolve(circuitName + ".json");
 
-	runner.addDiagram(circuitName);
+	runner.createCircuit(circuitName);
 	// first save leads to a prompt for location
 	runner.save();
 	runner.saveToLocation(tempdir);
