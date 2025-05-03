@@ -1,7 +1,10 @@
 # hexa-draw
-Desktop graphical editor re-implemented following Ports and Adapters (hexagonal) architecture. 
+Desktop graphical editor re-implemented following Ports and Adapters (hexagonal) architecture, and using outside-in TDD. 
 
-Working on this app aims to answer the following questions:
+# To run
+1. `./gradlew build` (omit the `./` if on windows)
+2. `./gradlew run`
+
 # Questions to answer
 - What is MVC? Each Model should have a corresponding View into it. The Model and View should be finer grained. How does that look in practice?
 - How do Models and Views communicate by the Subscriber pattern? Should finer grained Event value objects be created? Do they carry references to Models and so on?
