@@ -12,8 +12,10 @@ public class ApplicationRunner {
     private Robot robot;
 
     public void start() {
+	// This must run before main is started!
 	robot = BasicRobot.robotWithNewAwtHierarchy();
 
+	// Runs the app from main method
 	Thread thread = new Thread("Test Application") {
 	    @Override
 	    public void run() {
@@ -27,6 +29,7 @@ public class ApplicationRunner {
 	thread.setDaemon(true);
 	thread.start();
 
+	// Finds the Main Frame, by name, and enables testing
 	window = WindowFinder.findFrame(ComponentNames.MAIN_FRAME).using(robot);
     }
 
