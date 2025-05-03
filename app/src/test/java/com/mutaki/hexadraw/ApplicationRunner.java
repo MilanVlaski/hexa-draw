@@ -7,9 +7,6 @@ import org.assertj.swing.core.Robot;
 import org.assertj.swing.finder.WindowFinder;
 import org.assertj.swing.fixture.FrameFixture;
 
-import com.mutaki.hexadraw.App;
-import com.mutaki.hexadraw.ComponentNames;
-
 public class ApplicationRunner {
 
     private FrameFixture window;
@@ -49,8 +46,9 @@ public class ApplicationRunner {
     }
 
     public void stop() {
-	if (window != null)
+	if (window != null) {
 	    window.cleanUp();
+	}
     }
 
     public void saveToLocation(Path path) {
