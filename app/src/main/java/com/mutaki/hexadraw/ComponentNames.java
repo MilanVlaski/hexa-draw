@@ -1,4 +1,4 @@
-package com.mutaki.app;
+package com.mutaki.hexadraw;
 
 public class ComponentNames {
 

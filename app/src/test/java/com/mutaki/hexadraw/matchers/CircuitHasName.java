@@ -1,9 +1,9 @@
-package com.mutaki.app.matchers;
+package com.mutaki.hexadraw.matchers;
 
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.mutaki.app.Circuit;
+import com.mutaki.hexadraw.Circuit;
 
 public class CircuitHasName extends TypeSafeMatcher<Circuit> {
 

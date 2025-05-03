@@ -1,4 +1,4 @@
-package com.mutaki.app;
+package com.mutaki.hexadraw;
 
 import java.nio.file.Path;
 

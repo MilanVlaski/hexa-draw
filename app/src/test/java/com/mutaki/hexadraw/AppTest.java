@@ -1,6 +1,6 @@
-package com.mutaki.app;
+package com.mutaki.hexadraw;
 
-import static com.mutaki.app.matchers.CircuitHasName.hasName;
+import static com.mutaki.hexadraw.matchers.CircuitHasName.hasName;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.io.IOException;
@@ -9,6 +9,8 @@ import java.nio.file.Files;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.mutaki.hexadraw.JsonCircuitFileReader;
 
 public class AppTest {
 

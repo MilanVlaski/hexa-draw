@@ -1,4 +1,4 @@
-package com.mutaki.app;
+package com.mutaki.hexadraw;
 
 import java.nio.file.Path;
 
@@ -6,6 +6,9 @@ import org.assertj.swing.core.BasicRobot;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.finder.WindowFinder;
 import org.assertj.swing.fixture.FrameFixture;
+
+import com.mutaki.hexadraw.App;
+import com.mutaki.hexadraw.ComponentNames;
 
 public class ApplicationRunner {
 
