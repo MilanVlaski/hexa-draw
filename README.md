@@ -12,7 +12,7 @@ Desktop graphical editor re-implemented following Ports and Adapters (hexagonal)
 - How does this fit into Ports and Adapters architecture, and what high level components will the app contain? (It's not just MODEL and VIEW and CONTROLLER. That's a lie.).
 - How to implement Deskto GUI organization reasonably?
 ## To do
-- [ ] Make Maven template
+- [x] Make ~Maven~ Gradle template
 ### Architecture
 - [ ] Identify main architectural bits:
   - App (has user functions)
