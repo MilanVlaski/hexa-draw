@@ -4,7 +4,9 @@
 [versions]
 hamcrest = "3.0"
 assertj-swing = "3.17.1"
+gson = "2.13.1"
 
 [libraries]
 hamcrest = { group = "org.hamcrest", name = "hamcrest", version.ref = "hamcrest" }
 assertj-swing = { group = "org.assertj", name = "assertj-swing", version.ref = "assertj-swing" }
+gson = {group = "com.google.code.gson", name = "gson", version.ref = "gson"}

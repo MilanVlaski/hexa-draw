@@ -11,8 +11,10 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
+import java.io.File;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -25,6 +27,8 @@ public class App {
     private JFrame frame;
     private JPanel drawPanel;
 
+    private Circuit circuit;
+
     public App() {
 	frame = new JFrame("Hexa-Draw");
 	frame.setName(ComponentNames.MAIN_FRAME);
@@ -34,6 +38,7 @@ public class App {
 
 	JButton createCircuitBtn = new JButton("Create Circuit");
 	JButton saveBtn = new JButton("Save");
+	saveBtn.addActionListener(this::save);
 
 	JPanel topPanel = new JPanel();
 	topPanel.add(createCircuitBtn);
@@ -41,7 +46,7 @@ public class App {
 
 	frame.add(topPanel, BorderLayout.NORTH);
 
-	createCircuitBtn.addActionListener(this::handleOpen);
+	createCircuitBtn.addActionListener(this::createCircuit);
 	// Names help identify components for window licker
 	createCircuitBtn.setName(CREATE_CIRCUIT_BTN);
 	saveBtn.setName(SAVE_BTN);
@@ -49,7 +54,11 @@ public class App {
 	frame.setVisible(true);
     }
 
-    private void handleOpen(ActionEvent e) {
+    private void createCircuit(ActionEvent e) {
+
+	String circuitName = CreateCircuitDialog.showDialog(frame);
+	this.circuit = new Circuit(circuitName);
+
 	if (drawPanel == null) {
 	    drawPanel = new JPanel() {
 		// just for show
@@ -57,11 +66,24 @@ public class App {
 		    super.paintComponent(g);
 		    Graphics2D g2d = (Graphics2D) g;
 		    g2d.setFont(new Font("Arial", Font.PLAIN, 12));
-		    g2d.drawString("Circuit opened!", 50, 50);
+		    g2d.drawString("Circuit " + circuitName + " opened!", 50, 50);
 		}
 	    };
 	    frame.add(drawPanel, BorderLayout.CENTER);
 	    frame.revalidate();
 	}
+    }
+
+    private void save(ActionEvent actionevent1) {
+	JFileChooser fileChooser = new JFileChooser();
+	fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+	fileChooser.setName(ComponentNames.CIRCUIT_LOCATION_FILE_CHOOSER);
+
+	int result = fileChooser.showSaveDialog(null);
+	if (result == JFileChooser.APPROVE_OPTION) {
+	    File selectedFile = fileChooser.getSelectedFile();
+	    new JsonCircuitFileWriter(circuit).write(selectedFile.toPath());
+	}
+
     }
 }

@@ -5,10 +5,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class AppTest {
@@ -29,21 +29,22 @@ public class AppTest {
 
     @Test
     void Window_has_clickable_create_circuit_button() {
-	runner.createCircuit(circuitName);
+	runner.createCircuit();
     }
 
     @Test
-    @Disabled("Currently failing. Please fix!")
+//    @Disabled("Currently failing. Please fix!")
     void Creates_circuit_then_saves_it() throws IOException {
-	var tempdir = Files.createTempDirectory("temp");
-	var circuitFilePath = tempdir.resolve(circuitName + ".json");
+	Path saveDirectory = Files.createTempDirectory("temp");
+	Path circuitFilePath = saveDirectory.resolve(circuitName + ".json");
 
-	runner.createCircuit(circuitName);
+	runner.createCircuit();
+	runner.nameCircuit(circuitName);
 	// first save leads to a prompt for location
 	runner.save();
-	runner.saveToLocation(tempdir);
+	runner.saveToLocation(saveDirectory);
 
-	final var circuit = new JsonCircuitFileReader(circuitFilePath).read();
+	final Circuit circuit = new JsonCircuitFileReader(circuitFilePath).read();
 	assertThat(circuit, hasName(circuitName));
     }
 

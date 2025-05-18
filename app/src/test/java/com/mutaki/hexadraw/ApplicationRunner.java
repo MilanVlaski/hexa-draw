@@ -5,12 +5,33 @@ import java.nio.file.Path;
 import org.assertj.swing.core.BasicRobot;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.finder.WindowFinder;
+import org.assertj.swing.fixture.DialogFixture;
 import org.assertj.swing.fixture.FrameFixture;
 
 public class ApplicationRunner {
 
     private FrameFixture window;
     private Robot robot;
+
+    public void createCircuit() {
+	window.button(ComponentNames.CREATE_CIRCUIT_BTN).click();
+    }
+
+    public void nameCircuit(String circuitName) {
+	DialogFixture dialog = window.dialog(ComponentNames.CIRCUIT_NAME_DIALOG);
+	dialog.textBox().setText(circuitName);
+	dialog.button(ComponentNames.OK_BUTTON).click();
+    }
+
+    public void save() {
+	window.button(ComponentNames.SAVE_BTN).click();
+    }
+
+    public void saveToLocation(Path path) {
+	var fileChooser = window.fileChooser();
+	fileChooser.setCurrentDirectory(path.toFile());
+	fileChooser.approve();
+    }
 
     public void start() {
 	// This must run before main is started!
@@ -37,22 +58,9 @@ public class ApplicationRunner {
 	thread.start();
     }
 
-    public void createCircuit(String circuitName) {
-	window.button(ComponentNames.CREATE_CIRCUIT_BTN).click();
-    }
-
-    public void save() {
-	window.button(ComponentNames.SAVE_BTN).click();
-    }
-
     public void stop() {
 	if (window != null) {
 	    window.cleanUp();
 	}
-    }
-
-    public void saveToLocation(Path path) {
-	// TODO Auto-generated method stub
-
     }
 }
