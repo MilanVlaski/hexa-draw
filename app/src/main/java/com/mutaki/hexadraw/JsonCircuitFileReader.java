@@ -8,18 +8,18 @@ import com.google.gson.Gson;
 
 public class JsonCircuitFileReader {
 
-    private final Path circuitFilePath;
+    private final Path circuitDocumentPath;
     private final Gson gson = new Gson();
 
-    public JsonCircuitFileReader(Path circuitFilePath) {
-	this.circuitFilePath = circuitFilePath;
+    public JsonCircuitFileReader(Path circuitDocumentPath) {
+	this.circuitDocumentPath = circuitDocumentPath;
     }
 
     public Circuit read() {
 	try {
-	    String json = Files.readString(circuitFilePath);
-	    final var circuitFile = gson.fromJson(json, CircuitFileJson.class);
-	    return circuitFile.toCircuit();
+	    String json = Files.readString(circuitDocumentPath);
+	    final var circuitDocument = gson.fromJson(json, CircuitDocument.class);
+	    return circuitDocument.toCircuit();
 	} catch (IOException e) {
 	    e.printStackTrace();
 	    return null;

@@ -1,10 +1,10 @@
 package com.mutaki.hexadraw;
 
-public class CircuitFileJson {
+public class CircuitDocument {
 
     public String name;
 
-    public CircuitFileJson(String circuitName) {
+    public CircuitDocument(String circuitName) {
 	this.name = circuitName;
     }
 

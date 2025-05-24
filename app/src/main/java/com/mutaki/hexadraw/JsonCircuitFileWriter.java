@@ -8,26 +8,28 @@ import com.google.gson.Gson;
 
 public class JsonCircuitFileWriter {
 
-    private final Gson gson = new Gson();
-
     private Circuit circuit;
+    private final Gson gson = new Gson();
+    private final String FILE_EXTENSION = ".json";
 
     public JsonCircuitFileWriter(Circuit circuit) {
 	this.circuit = circuit;
     }
 
     public void write(Path directory) {
-	var dto = circuit.circuitFile();
+	var dto = circuit.toDocument();
 	String json = gson.toJson(dto);
 	try {
-	    System.out.println("Creating directories: " + directory.toString());
 	    Files.createDirectories(directory);
-	    var filePath = directory.resolve(circuit.name() + ".json");
-	    System.out.println("Writing to file: " + filePath.toString());
+	    var filePath = directory.resolve(fileName());
 	    Files.writeString(filePath, json);
 	} catch (IOException e) {
 	    e.printStackTrace();
 	}
+    }
+
+    private String fileName() {
+	return circuit.name() + FILE_EXTENSION;
     }
 
     public static void main(String... args) {

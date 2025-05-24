@@ -21,12 +21,19 @@ import javax.swing.SwingUtilities;
 
 public class App {
     public static void main(String[] args) {
-	SwingUtilities.invokeLater(App::new);
+	SwingUtilities.invokeLater(() -> new App());
     }
 
-    private JFrame frame;
-    private JPanel drawPanel;
+    private final JFrame frame;
 
+    // Nullable "current panel"
+    // No "current panel", but a
+    private JPanel drawPanel;
+    // Nullable "current circuit". Are these the wrong abstractions?
+    // There is no "current" or not-current circuit. To me, there is just
+    // a bunch of stuff we have open, and when we choose to save it, one thing,
+    // or all of it, gets saved.
+    // The solution should be implemented so that auto-saving is simple.
     private Circuit circuit;
 
     public App() {
@@ -47,7 +54,6 @@ public class App {
 	frame.add(topPanel, BorderLayout.NORTH);
 
 	createCircuitBtn.addActionListener(this::createCircuit);
-	// Names help identify components for window licker
 	createCircuitBtn.setName(CREATE_CIRCUIT_BTN);
 	saveBtn.setName(SAVE_BTN);
 
@@ -82,7 +88,7 @@ public class App {
 	int result = fileChooser.showSaveDialog(null);
 	if (result == JFileChooser.APPROVE_OPTION) {
 	    File selectedFile = fileChooser.getSelectedFile();
-	    new JsonCircuitFileWriter(circuit).write(selectedFile.toPath());
+	    circuit.save(selectedFile.toPath());
 	}
 
     }

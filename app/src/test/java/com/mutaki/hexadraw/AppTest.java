@@ -36,6 +36,7 @@ public class AppTest {
 //    @Disabled("Currently failing. Please fix!")
     void Creates_circuit_then_saves_it() throws IOException {
 	Path saveDirectory = Files.createTempDirectory("temp");
+	// .json being in tests is fine. But it's not ok in the test code.
 	Path circuitFilePath = saveDirectory.resolve(circuitName + ".json");
 
 	runner.createCircuit();
