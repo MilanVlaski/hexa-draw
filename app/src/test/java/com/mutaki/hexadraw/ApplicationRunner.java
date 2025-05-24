@@ -63,4 +63,9 @@ public class ApplicationRunner {
 	    window.cleanUp();
 	}
     }
+
+    public void pickCircuitDirectory(Path circuitFilePath) {
+	// TODO Auto-generated method stub
+
+    }
 }

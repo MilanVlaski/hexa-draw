@@ -9,6 +9,7 @@ import java.nio.file.Path;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class AppTest {
@@ -33,10 +34,8 @@ public class AppTest {
     }
 
     @Test
-//    @Disabled("Currently failing. Please fix!")
-    void Creates_circuit_then_saves_it() throws IOException {
+    void Circuit_without_location_prompts_for_location_on_save() throws IOException {
 	Path saveDirectory = Files.createTempDirectory("temp");
-	// .json being in tests is fine. But it's not ok in the test code.
 	Path circuitFilePath = saveDirectory.resolve(circuitName + ".json");
 
 	runner.createCircuit();
@@ -44,6 +43,22 @@ public class AppTest {
 	// first save leads to a prompt for location
 	runner.save();
 	runner.saveToLocation(saveDirectory);
+
+	final Circuit circuit = new JsonCircuitFileReader(circuitFilePath).read();
+	assertThat(circuit, hasName(circuitName));
+    }
+
+    @Test
+    @Disabled("TODO")
+    void Creates_circuit_with_location_then_saves_it_there() throws IOException {
+	Path saveDirectory = Files.createTempDirectory("temp");
+	Path circuitFilePath = saveDirectory.resolve(circuitName + ".json");
+
+	runner.createCircuit();
+	runner.nameCircuit(circuitName);
+	runner.pickCircuitDirectory(circuitFilePath);
+
+	runner.save();
 
 	final Circuit circuit = new JsonCircuitFileReader(circuitFilePath).read();
 	assertThat(circuit, hasName(circuitName));
