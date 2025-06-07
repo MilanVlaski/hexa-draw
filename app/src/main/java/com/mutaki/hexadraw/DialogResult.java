@@ -1,11 +1,14 @@
 package com.mutaki.hexadraw;
 
+import java.nio.file.Path;
+import java.util.Optional;
+
 public class DialogResult {
 
     public String name;
-    public String location;
+    public Optional<Path> location;
 
-    public DialogResult(String name, String location) {
+    public DialogResult(String name, Optional<Path> location) {
 	this.name = name;
 	this.location = location;
     }

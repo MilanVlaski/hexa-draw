@@ -11,10 +11,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
-import java.io.File;
 
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -34,7 +32,7 @@ public class App {
     // a bunch of stuff we have open, and when we choose to save it, one thing,
     // or all of it, gets saved.
     // The solution should be implemented so that auto-saving is simple.
-    private Circuit circuit;
+    private SaveableWrapper saveable;
 
     public App() {
 	frame = new JFrame("Hexa-Draw");
@@ -45,7 +43,7 @@ public class App {
 
 	JButton createCircuitBtn = new JButton("Create Circuit");
 	JButton saveBtn = new JButton("Save");
-	saveBtn.addActionListener(this::save);
+	saveBtn.addActionListener(e -> saveable.save());
 
 	JPanel topPanel = new JPanel();
 	topPanel.add(createCircuitBtn);
@@ -63,7 +61,8 @@ public class App {
     private void createCircuit(ActionEvent e) {
 
 	DialogResult dialogResult = CreateCircuitDialog.showDialog(frame);
-	this.circuit = new Circuit(dialogResult.name);
+	this.saveable = new SaveableWrapper(new Circuit(dialogResult.name),
+		dialogResult.location);
 
 	if (drawPanel == null) {
 	    drawPanel = new JPanel() {
@@ -78,18 +77,5 @@ public class App {
 	    frame.add(drawPanel, BorderLayout.CENTER);
 	    frame.revalidate();
 	}
-    }
-
-    private void save(ActionEvent actionevent1) {
-	JFileChooser fileChooser = new JFileChooser();
-	fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-	fileChooser.setName(ComponentNames.CIRCUIT_LOCATION_FILE_CHOOSER);
-
-	int result = fileChooser.showSaveDialog(null);
-	if (result == JFileChooser.APPROVE_OPTION) {
-	    File selectedFile = fileChooser.getSelectedFile();
-	    circuit.save(selectedFile.toPath());
-	}
-
     }
 }

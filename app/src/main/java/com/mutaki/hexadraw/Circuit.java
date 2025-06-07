@@ -4,18 +4,18 @@ import java.nio.file.Path;
 
 public class Circuit {
 
-    private final String circuitName;
+    private final String name;
 
-    public Circuit(String circuitName) {
-	this.circuitName = circuitName;
+    public Circuit(String name) {
+	this.name = name;
     }
 
     public String name() {
-	return circuitName;
+	return name;
     }
 
     public CircuitDocument toDocument() {
-	return new CircuitDocument(circuitName);
+	return new CircuitDocument(name);
     }
 
     public void save(Path saveDirectory) {

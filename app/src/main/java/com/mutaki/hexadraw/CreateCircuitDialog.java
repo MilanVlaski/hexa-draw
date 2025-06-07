@@ -2,6 +2,8 @@ package com.mutaki.hexadraw;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;
+import java.nio.file.Path;
+import java.util.Optional;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -30,7 +32,12 @@ public class CreateCircuitDialog extends JDialog {
         JButton ok = new JButton("OK");
 	ok.setName(ComponentNames.OK_BUTTON);
         ok.addActionListener(e -> {
-	    result = new DialogResult(nameField.getText(), directoryField.getText());
+	    // Java is bad at this, compared to Kotlin :)
+	    final var optionalPath = Optional.ofNullable(directoryField.getText())
+		.filter(s -> !s.isEmpty())
+		.map(Path::of);
+	    result = new DialogResult(nameField.getText(),
+		    optionalPath);
             dispose();
         });
 
