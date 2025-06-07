@@ -24,14 +24,11 @@ public class App {
 
     private final JFrame frame;
 
-    // Nullable "current panel"
-    // No "current panel", but a
     private JPanel drawPanel;
-    // Nullable "current circuit". Are these the wrong abstractions?
-    // There is no "current" or not-current circuit. To me, there is just
-    // a bunch of stuff we have open, and when we choose to save it, one thing,
-    // or all of it, gets saved.
-    // The solution should be implemented so that auto-saving is simple.
+    // TODO should be a list of saveables, with saving logic, like,
+    // The user may have 10 open diagrams, none of which have locations.
+    // A prompt will appear for each, because that's the simplest.
+    private Saveables saveables = new Saveables();
     private SaveableWrapper saveable;
 
     public App() {
@@ -47,7 +44,7 @@ public class App {
 
 	JButton saveBtn = new JButton("Save");
 	saveBtn.setName(SAVE_BTN);
-	saveBtn.addActionListener(e -> saveable.save());
+	saveBtn.addActionListener(e -> saveables.save());
 
 	JPanel topPanel = new JPanel();
 	topPanel.add(createCircuitBtn);
@@ -62,8 +59,8 @@ public class App {
     private void createCircuit(ActionEvent e) {
 
 	DialogResult dialogResult = CreateCircuitDialog.showDialog(frame);
-	this.saveable = new SaveableWrapper(new Circuit(dialogResult.name),
-		dialogResult.location);
+	saveables.add(new SaveableWrapper(new Circuit(dialogResult.name),
+		dialogResult.location));
 	if (drawPanel == null) {
 	    drawPanel = new JPanel() {
 		// just for show
