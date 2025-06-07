@@ -20,7 +20,6 @@ public class ApplicationRunner {
     public void nameCircuit(String circuitName) {
 	DialogFixture dialog = window.dialog(ComponentNames.CIRCUIT_NAME_DIALOG);
 	dialog.textBox(ComponentNames.CIRCUIT_NAME_TEXT_BOX).setText(circuitName);
-	dialog.button(ComponentNames.OK_BUTTON).click();
     }
 
     public void save() {
@@ -30,6 +29,18 @@ public class ApplicationRunner {
     public void saveToLocation(Path path) {
 	var fileChooser = window.fileChooser();
 	fileChooser.setCurrentDirectory(path.toFile());
+	fileChooser.approve();
+    }
+
+    public void confirm() {
+	window.dialog(ComponentNames.CIRCUIT_NAME_DIALOG).button(ComponentNames.OK_BUTTON)
+	    .click();
+    }
+
+    public void pickCircuitDirectory(Path directory) {
+	window.button(ComponentNames.SAVE_LOCATION_CHOOSER_BUTTON).click();
+	var fileChooser = window.fileChooser();
+	fileChooser.setCurrentDirectory(directory.toFile());
 	fileChooser.approve();
     }
 
@@ -64,9 +75,4 @@ public class ApplicationRunner {
 	}
     }
 
-    public void pickCircuitDirectory(Path directory) {
-	var fileChooser = window.fileChooser();
-	fileChooser.setCurrentDirectory(directory.toFile().getParentFile());
-	fileChooser.approve();
-    }
 }

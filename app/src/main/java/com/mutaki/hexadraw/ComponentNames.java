@@ -9,4 +9,5 @@ public class ComponentNames {
     public static final String CIRCUIT_NAME_TEXT_BOX = "CircuitNameTextBox";
     public static final String OK_BUTTON = "OkBtn";
     public static final String CIRCUIT_LOCATION_FILE_CHOOSER = "CircuitLocationFileChooser";
+    public static final String SAVE_LOCATION_CHOOSER_BUTTON = "SaveLocationChooserButton";
 }

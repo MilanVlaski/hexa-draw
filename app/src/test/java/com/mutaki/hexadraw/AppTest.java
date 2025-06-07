@@ -40,6 +40,7 @@ public class AppTest {
 
 	runner.createCircuit();
 	runner.nameCircuit(circuitName);
+	runner.confirm();
 	// first save leads to a prompt for location
 	runner.save();
 	runner.saveToLocation(saveDirectory);
@@ -49,7 +50,7 @@ public class AppTest {
     }
 
     @Test
-    @Disabled("TODO")
+//    @Disabled("TODO")
     void Creates_circuit_with_location_then_saves_it_there() throws IOException {
 	Path saveDirectory = Files.createTempDirectory("temp");
 	Path circuitFilePath = saveDirectory.resolve(circuitName + ".json");
@@ -57,6 +58,7 @@ public class AppTest {
 	runner.createCircuit();
 	runner.nameCircuit(circuitName);
 	runner.pickCircuitDirectory(saveDirectory);
+	runner.confirm();
 
 	runner.save();
 

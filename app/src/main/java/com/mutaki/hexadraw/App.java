@@ -42,7 +42,11 @@ public class App {
 	frame.setLocationRelativeTo(null);
 
 	JButton createCircuitBtn = new JButton("Create Circuit");
+	createCircuitBtn.setName(CREATE_CIRCUIT_BTN);
+	createCircuitBtn.addActionListener(this::createCircuit);
+
 	JButton saveBtn = new JButton("Save");
+	saveBtn.setName(SAVE_BTN);
 	saveBtn.addActionListener(e -> saveable.save());
 
 	JPanel topPanel = new JPanel();
@@ -51,9 +55,6 @@ public class App {
 
 	frame.add(topPanel, BorderLayout.NORTH);
 
-	createCircuitBtn.addActionListener(this::createCircuit);
-	createCircuitBtn.setName(CREATE_CIRCUIT_BTN);
-	saveBtn.setName(SAVE_BTN);
 
 	frame.setVisible(true);
     }
@@ -63,7 +64,6 @@ public class App {
 	DialogResult dialogResult = CreateCircuitDialog.showDialog(frame);
 	this.saveable = new SaveableWrapper(new Circuit(dialogResult.name),
 		dialogResult.location);
-
 	if (drawPanel == null) {
 	    drawPanel = new JPanel() {
 		// just for show

@@ -20,6 +20,7 @@ public class SaveableWrapper implements Saveable {
     public void save() {
 	saveDirectory.ifPresentOrElse(
 		dir -> new JsonCircuitFileWriter(circuit).write(dir),
+		// TOOO this should be a lambda that saves our document.
 		() -> {
 		    JFileChooser fileChooser = new JFileChooser();
 		    fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
