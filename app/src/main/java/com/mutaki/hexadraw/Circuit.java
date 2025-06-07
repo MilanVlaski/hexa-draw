@@ -1,7 +1,5 @@
 package com.mutaki.hexadraw;
 
-import com.mutaki.hexadraw.io.CircuitDocument;
-
 public class Circuit {
 
     private final String name;
@@ -12,10 +10,6 @@ public class Circuit {
 
     public String name() {
 	return name;
-    }
-
-    public CircuitDocument toDocument() {
-	return new CircuitDocument(name);
     }
 
 }

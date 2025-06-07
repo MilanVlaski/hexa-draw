@@ -18,7 +18,7 @@ public class JsonCircuitFileWriter {
     }
 
     public void write(Path directory) {
-	var dto = circuit.toDocument();
+	var dto = new CircuitDocument(circuit.name());
 	String json = gson.toJson(dto);
 	try {
 	    Files.createDirectories(directory);
