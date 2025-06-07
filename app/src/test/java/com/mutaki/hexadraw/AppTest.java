@@ -56,7 +56,7 @@ public class AppTest {
 
 	runner.createCircuit();
 	runner.nameCircuit(circuitName);
-	runner.pickCircuitDirectory(circuitFilePath);
+	runner.pickCircuitDirectory(saveDirectory);
 
 	runner.save();
 

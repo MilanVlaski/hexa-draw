@@ -19,7 +19,7 @@ public class ApplicationRunner {
 
     public void nameCircuit(String circuitName) {
 	DialogFixture dialog = window.dialog(ComponentNames.CIRCUIT_NAME_DIALOG);
-	dialog.textBox().setText(circuitName);
+	dialog.textBox(ComponentNames.CIRCUIT_NAME_TEXT_BOX).setText(circuitName);
 	dialog.button(ComponentNames.OK_BUTTON).click();
     }
 
@@ -64,8 +64,9 @@ public class ApplicationRunner {
 	}
     }
 
-    public void pickCircuitDirectory(Path circuitFilePath) {
-	// TODO Auto-generated method stub
-
+    public void pickCircuitDirectory(Path directory) {
+	var fileChooser = window.fileChooser();
+	fileChooser.setCurrentDirectory(directory.toFile().getParentFile());
+	fileChooser.approve();
     }
 }
