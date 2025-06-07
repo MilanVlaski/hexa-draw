@@ -22,7 +22,7 @@ public class ApplicationRunner {
 	dialog.textBox(ComponentNames.CIRCUIT_NAME_TEXT_BOX).setText(circuitName);
     }
 
-    public void save() {
+    public void saveAll() {
 	window.button(ComponentNames.SAVE_BTN).click();
     }
 

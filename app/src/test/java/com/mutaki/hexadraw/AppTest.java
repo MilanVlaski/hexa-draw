@@ -42,7 +42,7 @@ public class AppTest {
 	runner.nameCircuit(circuitName);
 	runner.confirm();
 	// first save leads to a prompt for location
-	runner.save();
+	runner.saveAll();
 	runner.saveToLocation(saveDirectory);
 
 	final Circuit circuit = new JsonCircuitFileReader(circuitFilePath).read();
@@ -60,7 +60,7 @@ public class AppTest {
 	runner.pickCircuitDirectory(saveDirectory);
 	runner.confirm();
 
-	runner.save();
+	runner.saveAll();
 
 	final Circuit circuit = new JsonCircuitFileReader(circuitFilePath).read();
 	assertThat(circuit, hasName(circuitName));
