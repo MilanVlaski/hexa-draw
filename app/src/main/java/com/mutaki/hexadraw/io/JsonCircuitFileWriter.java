@@ -1,10 +1,11 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.io;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 import com.google.gson.Gson;
+import com.mutaki.hexadraw.Circuit;
 
 public class JsonCircuitFileWriter {
 

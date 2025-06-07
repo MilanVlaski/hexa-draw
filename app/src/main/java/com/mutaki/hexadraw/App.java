@@ -17,6 +17,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import com.mutaki.hexadraw.io.SaveableWrapper;
+import com.mutaki.hexadraw.io.Saveables;
+
 public class App {
     public static void main(String[] args) {
 	SwingUtilities.invokeLater(() -> new App());
@@ -25,11 +28,7 @@ public class App {
     private final JFrame frame;
 
     private JPanel drawPanel;
-    // TODO should be a list of saveables, with saving logic, like,
-    // The user may have 10 open diagrams, none of which have locations.
-    // A prompt will appear for each, because that's the simplest.
     private Saveables saveables = new Saveables();
-    private SaveableWrapper saveable;
 
     public App() {
 	frame = new JFrame("Hexa-Draw");

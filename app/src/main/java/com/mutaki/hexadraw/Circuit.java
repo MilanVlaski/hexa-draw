@@ -1,6 +1,6 @@
 package com.mutaki.hexadraw;
 
-import java.nio.file.Path;
+import com.mutaki.hexadraw.io.CircuitDocument;
 
 public class Circuit {
 
@@ -16,10 +16,6 @@ public class Circuit {
 
     public CircuitDocument toDocument() {
 	return new CircuitDocument(name);
-    }
-
-    public void save(Path saveDirectory) {
-	new JsonCircuitFileWriter(this).write(saveDirectory);
     }
 
 }

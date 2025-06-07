@@ -1,10 +1,13 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.io;
 
 import java.io.File;
 import java.nio.file.Path;
 import java.util.Optional;
 
 import javax.swing.JFileChooser;
+
+import com.mutaki.hexadraw.Circuit;
+import com.mutaki.hexadraw.ComponentNames;
 
 public class SaveableWrapper implements Saveable {
 

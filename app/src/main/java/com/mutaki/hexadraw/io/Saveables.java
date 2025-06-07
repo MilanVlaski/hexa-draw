@@ -1,4 +1,4 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.io;
 
 import java.util.ArrayList;
 import java.util.List;

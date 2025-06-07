@@ -1,4 +1,6 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.io;
+
+import com.mutaki.hexadraw.Circuit;
 
 public class CircuitDocument {
 

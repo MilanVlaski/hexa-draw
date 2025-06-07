@@ -12,6 +12,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import com.mutaki.hexadraw.io.JsonCircuitFileReader;
+
 public class AppTest {
 
     ApplicationRunner runner = new ApplicationRunner();
