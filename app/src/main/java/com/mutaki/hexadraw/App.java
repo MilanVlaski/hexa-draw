@@ -62,8 +62,8 @@ public class App {
 
     private void createCircuit(ActionEvent e) {
 
-	String circuitName = CreateCircuitDialog.showDialog(frame);
-	this.circuit = new Circuit(circuitName);
+	DialogResult dialogResult = CreateCircuitDialog.showDialog(frame);
+	this.circuit = new Circuit(dialogResult.name);
 
 	if (drawPanel == null) {
 	    drawPanel = new JPanel() {
@@ -72,7 +72,7 @@ public class App {
 		    super.paintComponent(g);
 		    Graphics2D g2d = (Graphics2D) g;
 		    g2d.setFont(new Font("Arial", Font.PLAIN, 12));
-		    g2d.drawString("Circuit " + circuitName + " opened!", 50, 50);
+		    g2d.drawString("Circuit opened!", 50, 50);
 		}
 	    };
 	    frame.add(drawPanel, BorderLayout.CENTER);

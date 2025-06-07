@@ -14,7 +14,7 @@ public class CreateCircuitDialog extends JDialog {
     private JTextField nameField = new JTextField(20);
     private JTextField directoryField = new JTextField(20);
 
-    private String result = null;
+    private DialogResult result = null;
 
     public CreateCircuitDialog(Frame owner) {
 	super(owner, "New Circuit", true);
@@ -30,7 +30,7 @@ public class CreateCircuitDialog extends JDialog {
         JButton ok = new JButton("OK");
 	ok.setName(ComponentNames.OK_BUTTON);
         ok.addActionListener(e -> {
-	    result = nameField.getText();
+	    result = new DialogResult(nameField.getText(), directoryField.getText());
             dispose();
         });
 
@@ -63,9 +63,10 @@ public class CreateCircuitDialog extends JDialog {
         setLocationRelativeTo(owner);
     }
 
-    public static String showDialog(Frame owner) {
+    public static DialogResult showDialog(Frame owner) {
 	CreateCircuitDialog dialog = new CreateCircuitDialog(owner);
         dialog.setVisible(true);
 	return dialog.result;
     }
+
 }
