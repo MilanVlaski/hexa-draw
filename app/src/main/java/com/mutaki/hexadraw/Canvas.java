@@ -1,5 +1,6 @@
 package com.mutaki.hexadraw;
 
+import java.awt.Graphics;
 import java.awt.Point;
 
 public class Canvas {
@@ -26,6 +27,10 @@ public class Canvas {
 
     public void resetState() {
 	state = new NothingState();
+    }
+
+    public void paint(Graphics g) {
+	circuit.paint(g);
     }
 
 }

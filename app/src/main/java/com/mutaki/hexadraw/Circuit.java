@@ -1,5 +1,6 @@
 package com.mutaki.hexadraw;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,10 @@ public class Circuit {
 
     public void addElement(JunctionBox element) {
 	elements.add(element);
+    }
+
+    public void paint(Graphics g) {
+	elements.forEach(el -> el.paint(g));
     }
 
 }

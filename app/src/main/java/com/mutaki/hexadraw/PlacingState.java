@@ -21,7 +21,7 @@ public class PlacingState implements State {
     public void click(Point point) {
 	var element = junctionBoxFactory.create(point);
 	circuit.addElement(element);
-	canvasListener.placeDrawingOf(element);
+	canvasListener.pleaseRepaint();
 	canvas.resetState();
     }
 

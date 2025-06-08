@@ -27,6 +27,7 @@ public class CanvasPanel extends JPanel implements MouseListener, CanvasListener
 	g2d.setFont(new Font("Arial", Font.PLAIN, 12));
 	g2d.drawString("Circuit opened!", 50, 50);
 	setBackground(Color.cyan);
+	canvas.paint(g);
     }
 
 
@@ -41,10 +42,7 @@ public class CanvasPanel extends JPanel implements MouseListener, CanvasListener
     }
 
     @Override
-    public void placeDrawingOf(Element element) {
-	JPanel panel = element.draw();
-	add(panel);
-	// Probably not correct. But it works :/
+    public void pleaseRepaint() {
 	invalidate();
 	revalidate();
 	repaint();

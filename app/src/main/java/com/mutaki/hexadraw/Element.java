@@ -1,8 +1,7 @@
 package com.mutaki.hexadraw;
 
+import java.awt.Graphics;
 import java.awt.Point;
-
-import javax.swing.JPanel;
 
 /**
  * Element is a placeholder generic name. Obviously, a connector wouldn't have a
@@ -11,5 +10,5 @@ import javax.swing.JPanel;
 public interface Element {
     boolean isAt(Point point);
 
-    JPanel draw();
+    void paint(Graphics g);
 }
