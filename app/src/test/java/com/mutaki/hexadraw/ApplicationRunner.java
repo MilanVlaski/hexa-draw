@@ -1,5 +1,6 @@
 package com.mutaki.hexadraw;
 
+import java.awt.Point;
 import java.nio.file.Path;
 
 import org.assertj.swing.core.BasicRobot;
@@ -73,6 +74,16 @@ public class ApplicationRunner {
 	if (window != null) {
 	    window.cleanUp();
 	}
+    }
+
+    public void selectJunctionBox() {
+	// TODO Auto-generated method stub
+
+    }
+
+    public void clickOn(Point point) {
+	// TODO Auto-generated method stub
+
     }
 
 }
