@@ -77,13 +77,11 @@ public class ApplicationRunner {
     }
 
     public void selectJunctionBox() {
-	// TODO Auto-generated method stub
-
+	window.button(ComponentNames.JUNCTION_BOX_BUTTON).click();
     }
 
-    public void clickOn(Point point) {
-	// TODO Auto-generated method stub
-
+    public void clickOnCanvasAt(Point point) {
+	window.panel(ComponentNames.DIAGRAM_PANEL).click();
     }
 
 }

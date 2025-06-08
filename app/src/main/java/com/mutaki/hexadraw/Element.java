@@ -2,20 +2,14 @@ package com.mutaki.hexadraw;
 
 import java.awt.Point;
 
+import javax.swing.JPanel;
+
 /**
  * Element is a placeholder generic name. Obviously, a connector wouldn't have a
  * location, exactly.
  */
-public class Element {
+public interface Element {
+    boolean isAt(Point point);
 
-    private Point location;
-
-    public Element(Point location) {
-	this.location = location;
-    }
-
-    public boolean isAt(Point point) {
-	return location.equals(point);
-    }
-
+    JPanel draw();
 }

@@ -34,4 +34,8 @@ public class Circuit {
 	return false;
     }
 
+    public void addElement(JunctionBox element) {
+	elements.add(element);
+    }
+
 }
