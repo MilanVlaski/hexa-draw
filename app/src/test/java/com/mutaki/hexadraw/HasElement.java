@@ -30,4 +30,8 @@ public class HasElement extends TypeSafeDiagnosingMatcher<Circuit> {
 	    description.appendText(" at " + at);
 	}
     }
+
+    public static HasElement hasElement(Class<?> elementType, At position) {
+	return new HasElement(elementType, position);
+    }
 }

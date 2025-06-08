@@ -1,5 +1,7 @@
 package com.mutaki.hexadraw;
 
+import static com.mutaki.hexadraw.At.at;
+import static com.mutaki.hexadraw.HasElement.hasElement;
 import static com.mutaki.hexadraw.matchers.CircuitHasName.hasName;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -78,6 +80,6 @@ public class AppTest {
 	runner.clickOn(point);
 
 	final Circuit circuit = new JsonCircuitFileReader(circuitFilePath).read();
-	assertThat(circuit, new HasElement(JunctionBox.class, new At(point)));
+	assertThat(circuit, hasElement(JunctionBox.class, at(point)));
     }
 }

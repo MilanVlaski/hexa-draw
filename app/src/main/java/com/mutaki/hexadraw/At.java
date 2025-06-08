@@ -10,7 +10,7 @@ public class At {
 	this.point = point;
     }
 
-    public At at(Point point) {
+    public static At at(Point point) {
 	return new At(point);
     }
 
@@ -18,4 +18,5 @@ public class At {
     public String toString() {
 	return String.format("(x=%d, y=%d)", point.x, point.y);
     }
+
 }
