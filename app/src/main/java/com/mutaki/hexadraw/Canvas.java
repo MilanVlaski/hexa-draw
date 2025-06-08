@@ -21,7 +21,11 @@ public class Canvas {
     }
 
     public void toPlacingState(JunctionBoxFactory junctionBoxFactory) {
-	this.state = new PlacingState(junctionBoxFactory, circuit, canvasListener);
+	this.state = new PlacingState(junctionBoxFactory, circuit, canvasListener, this);
+    }
+
+    public void resetState() {
+	state = new NothingState();
     }
 
 }
