@@ -1,6 +1,6 @@
 package com.mutaki.hexadraw.io;
 
-public interface Reconstructible<M> {
+public interface Document<M> {
 
     M toModel();
 }

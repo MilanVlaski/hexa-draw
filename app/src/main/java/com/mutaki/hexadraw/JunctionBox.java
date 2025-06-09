@@ -8,6 +8,8 @@ import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.geom.Path2D;
 
+import com.mutaki.hexadraw.io.Document;
+
 public class JunctionBox implements Element {
 
     private Point location;
@@ -19,6 +21,11 @@ public class JunctionBox implements Element {
     @Override
     public boolean isAt(Point point) {
         return location.equals(point);
+    }
+
+    @Override
+    public Document<JunctionBox> toDocument() {
+	return new JunctionBoxDocument(location);
     }
 
     @Override
@@ -41,6 +48,7 @@ public class JunctionBox implements Element {
 	// Draw the electricity symbol centered at location
 	drawElectricitySymbol(g2d);
     }
+
 
     private void drawElectricitySymbol(Graphics2D g2d) {
 	int centerX = location.x;
@@ -67,4 +75,5 @@ public class JunctionBox implements Element {
         g2d.setColor(Color.BLACK);
         g2d.draw(bolt);
     }
+
 }

@@ -4,8 +4,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.jsontype.NamedType;
 import com.google.gson.Gson;
 import com.mutaki.hexadraw.Circuit;
+import com.mutaki.hexadraw.JunctionBoxDocument;
 
 public class JsonCircuitFileWriter {
 
@@ -13,27 +18,52 @@ public class JsonCircuitFileWriter {
     private final Gson gson = new Gson();
     private final String FILE_EXTENSION = ".json";
 
+    // Jackson suports polymorphism better than Gson!
+    private final ObjectMapper mapper = new ObjectMapper()
+	.enable(SerializationFeature.INDENT_OUTPUT); // Pretty-print JSON
+
     public JsonCircuitFileWriter(Circuit circuit) {
 	this.circuit = circuit;
+	mapper.registerSubtypes(
+		new NamedType(CircuitDocument.class, "circuit"),
+		new NamedType(JunctionBoxDocument.class, "junctionBox"));
+
+	// Enable polymorphic type handling
+	mapper.activateDefaultTyping(
+		mapper.getPolymorphicTypeValidator(),
+		ObjectMapper.DefaultTyping.JAVA_LANG_OBJECT,
+		JsonTypeInfo.As.PROPERTY // Adds "@type" field to JSON
+	);
     }
 
     public void write(Path directory) {
-	var document = circuit.toDocument();
-	String json = gson.toJson(document);
 	try {
+	    CircuitDocument document = circuit.toDocument();
+	    String json = mapper.writeValueAsString(document);
 	    Files.createDirectories(directory);
-	    var filePath = directory.resolve(fileName());
-	    Files.writeString(filePath, json);
-	} catch (IOException e) {
-	    e.printStackTrace();
+	    Files.write(directory.resolve(fileName()), json.getBytes());
+	} catch (Exception e) {
+
 	}
     }
+
+//    public void write(Path directory) {
+//	var document = circuit.toDocument();
+//	String json = gson.toJson(document);
+//	try {
+//	    Files.createDirectories(directory);
+//	    var filePath = directory.resolve(fileName());
+//	    Files.writeString(filePath, json);
+//	} catch (IOException e) {
+//	    e.printStackTrace();
+//	}
+//    }
 
     private String fileName() {
 	return circuit.name() + FILE_EXTENSION;
     }
 
-    public static void main(String... args) {
+    public static void main(String... args) throws IOException {
 	new JsonCircuitFileWriter(new Circuit("name"))
 	    .write(Path.of("C:\\Users\\milan\\Desktop"));
     }

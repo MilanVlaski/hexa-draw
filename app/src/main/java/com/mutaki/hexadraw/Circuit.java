@@ -9,10 +9,15 @@ import com.mutaki.hexadraw.io.CircuitDocument;
 public class Circuit implements Documentable<CircuitDocument> {
 
     private final String name;
-    private final List<Element> elements = new ArrayList<>();
+    private final List<Element> elements;
 
     public Circuit(String name) {
+	this(name, new ArrayList<>());
+    }
+
+    public Circuit(String name, List<Element> elements) {
 	this.name = name;
+	this.elements = elements;
     }
 
     /**
@@ -24,7 +29,8 @@ public class Circuit implements Documentable<CircuitDocument> {
 
     @Override
     public CircuitDocument toDocument() {
-	return new CircuitDocument(name);
+	var documents = elements.stream().map(el -> el.toDocument()).toList();
+	return new CircuitDocument(name, documents);
     }
 
     public boolean has(Class<?> elementType, At at) {
