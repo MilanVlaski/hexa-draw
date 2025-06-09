@@ -43,8 +43,6 @@ public class CanvasPanel extends JPanel implements MouseListener, CanvasListener
 
     @Override
     public void pleaseRepaint() {
-	invalidate();
-	revalidate();
 	repaint();
     }
 
