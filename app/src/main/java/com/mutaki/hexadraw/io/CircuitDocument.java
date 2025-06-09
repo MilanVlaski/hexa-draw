@@ -3,15 +3,16 @@ package com.mutaki.hexadraw.io;
 import com.mutaki.hexadraw.Circuit;
 
 // This thing should be serializable in some way!
-public class CircuitDocument {
+public class CircuitDocument implements Reconstructible<Circuit> {
 
-    public String name;
+    public final String name;
 
-    public CircuitDocument(String circuitName) {
-	this.name = circuitName;
+    public CircuitDocument(String name) {
+	this.name = name;
     }
 
-    public Circuit toCircuit() {
+    @Override
+    public Circuit toModel() {
 	return new Circuit(name);
     }
 

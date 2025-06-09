@@ -66,6 +66,8 @@ public class AppTest {
 	assertThat(circuit, hasName(circuitName));
     }
 
+    // No way to verify that the Junction Box was drawn.
+    // It's a sign we need more "mock" tests.
     @Test
     @Disabled("Doesn't yet work")
     void Puts_a_junction_box_on_circuit_at_x_y() throws IOException {

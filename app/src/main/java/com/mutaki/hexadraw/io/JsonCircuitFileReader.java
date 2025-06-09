@@ -20,7 +20,7 @@ public class JsonCircuitFileReader {
 	try {
 	    String json = Files.readString(circuitDocumentPath);
 	    final var circuitDocument = gson.fromJson(json, CircuitDocument.class);
-	    return circuitDocument.toCircuit();
+	    return circuitDocument.toModel();
 	} catch (IOException e) {
 	    e.printStackTrace();
 	    return null;

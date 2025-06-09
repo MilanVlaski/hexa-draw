@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.mutaki.hexadraw.io.CircuitDocument;
 
-public class Circuit {
+public class Circuit implements Documentable<CircuitDocument> {
 
     private final String name;
     private final List<Element> elements = new ArrayList<>();
@@ -22,6 +22,7 @@ public class Circuit {
 	return name;
     }
 
+    @Override
     public CircuitDocument toDocument() {
 	return new CircuitDocument(name);
     }
