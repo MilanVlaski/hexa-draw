@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.jsontype.NamedType;
@@ -20,20 +19,16 @@ public class JsonCircuitFileWriter {
 
     // Jackson suports polymorphism better than Gson!
     private final ObjectMapper mapper = new ObjectMapper()
-	.enable(SerializationFeature.INDENT_OUTPUT); // Pretty-print JSON
+	.enable(SerializationFeature.INDENT_OUTPUT);
 
+    // Pretty-print JSON
     public JsonCircuitFileWriter(Circuit circuit) {
 	this.circuit = circuit;
 	mapper.registerSubtypes(
-		new NamedType(CircuitDocument.class, "circuit"),
-		new NamedType(JunctionBoxDocument.class, "junctionBox"));
+		new NamedType(JunctionBoxDocument.class, "junctionBox"),
+		new NamedType(CircuitDocument.class, "circuit"));
 
-	// Enable polymorphic type handling
-	mapper.activateDefaultTyping(
-		mapper.getPolymorphicTypeValidator(),
-		ObjectMapper.DefaultTyping.JAVA_LANG_OBJECT,
-		JsonTypeInfo.As.PROPERTY // Adds "@type" field to JSON
-	);
+	mapper.addMixIn(Document.class, DocumentSerializationMixin.class);
     }
 
     public void write(Path directory) {
@@ -43,7 +38,7 @@ public class JsonCircuitFileWriter {
 	    Files.createDirectories(directory);
 	    Files.write(directory.resolve(fileName()), json.getBytes());
 	} catch (Exception e) {
-
+	    e.printStackTrace();
 	}
     }
 

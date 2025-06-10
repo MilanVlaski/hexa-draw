@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import com.mutaki.hexadraw.io.JsonCircuitFileReader;
 import com.mutaki.hexadraw.io.JsonCircuitFileWriter;
 
 public class SerializationTest {
@@ -17,9 +18,10 @@ public class SerializationTest {
     @Test
     void Object_from_model_to_document_back_to_model() throws IOException {
 	Path saveDirectory = Path.of(""); // Files.createTempDirectory("temp");
-	Path circuitFilePath = saveDirectory.resolve(name + ".json");
 	var circuit = new Circuit(name, List.of(new JunctionBox(point)));
-	new JsonCircuitFileWriter(circuit).write(circuitFilePath);
-//	var writeCircuit = new JsonCircuitFileReader(circuitFilePath).read();
+	new JsonCircuitFileWriter(circuit).write(saveDirectory);
+
+	Path circuitFilePath = saveDirectory.resolve(name + ".json");
+	var writeCircuit = new JsonCircuitFileReader(circuitFilePath).read();
     }
 }

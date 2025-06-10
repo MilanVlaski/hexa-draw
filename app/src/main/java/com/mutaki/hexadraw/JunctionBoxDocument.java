@@ -8,6 +8,9 @@ public class JunctionBoxDocument implements Document<JunctionBox> {
 
     public Location location;
 
+    public JunctionBoxDocument() {
+    }
+
     public JunctionBoxDocument(Point location) {
 	this.location = new Location(location.x, location.y);
     }

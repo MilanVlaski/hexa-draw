@@ -4,11 +4,13 @@ import java.util.List;
 
 import com.mutaki.hexadraw.Circuit;
 
-// This thing should be serializable in some way!
 public class CircuitDocument implements Document<Circuit> {
 
     public String name;
     public List<? extends Document<?>> elements;
+
+    public CircuitDocument() {
+    }
 
     public CircuitDocument(String name, List<? extends Document<?>> documents) {
 	this.name = name;
@@ -17,6 +19,7 @@ public class CircuitDocument implements Document<Circuit> {
 
     @Override
     public Circuit toModel() {
+	// TODO implement elements
 	return new Circuit(name);
     }
 

@@ -12,6 +12,7 @@ import java.nio.file.Path;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.mutaki.hexadraw.io.JsonCircuitFileReader;
@@ -68,7 +69,7 @@ public class AppTest {
     // No way to verify that the Junction Box was drawn.
     // It's a sign we need more "mock" tests.
     @Test
-//    @Disabled("Doesn't yet work")
+    @Disabled("Doesn't yet work")
     void Puts_a_junction_box_on_circuit_at_x_y() throws IOException {
 	Path saveDirectory = Files.createTempDirectory("temp");
 	Path circuitFilePath = saveDirectory.resolve(circuitName + ".json");
