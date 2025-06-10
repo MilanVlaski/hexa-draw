@@ -1,6 +1,6 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.model;
 
-class Location {
+public class Location {
     public int x;
     public int y;
 

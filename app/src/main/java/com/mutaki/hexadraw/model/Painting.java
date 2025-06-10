@@ -1,4 +1,4 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.model;
 
 import java.awt.Graphics;
 

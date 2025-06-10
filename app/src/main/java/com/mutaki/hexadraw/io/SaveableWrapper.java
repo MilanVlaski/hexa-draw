@@ -6,9 +6,15 @@ import java.util.Optional;
 
 import javax.swing.JFileChooser;
 
-import com.mutaki.hexadraw.Circuit;
-import com.mutaki.hexadraw.ComponentNames;
+import com.mutaki.hexadraw.io.json.JsonCircuitFileWriter;
+import com.mutaki.hexadraw.model.Circuit;
+import com.mutaki.hexadraw.views.ComponentNames;
 
+/**
+ * TODO move JsonCircuitFileWriter to Circuit.save(), then call it here.
+ * Make Circuit implement Saveable.
+ * The make the Circuit field, of type Saveable. 
+ */
 public class SaveableWrapper implements Saveable {
 
     private final Circuit circuit;

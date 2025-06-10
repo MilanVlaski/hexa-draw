@@ -1,4 +1,4 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.views;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,6 +8,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
+
+import com.mutaki.hexadraw.canvas.Canvas;
+import com.mutaki.hexadraw.canvas.CanvasListener;
 
 public class CanvasPanel extends JPanel implements MouseListener, CanvasListener {
 

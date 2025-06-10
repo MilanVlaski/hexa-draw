@@ -1,4 +1,4 @@
-package com.mutaki.hexadraw.io;
+package com.mutaki.hexadraw.io.json;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,8 +7,10 @@ import java.nio.file.Path;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.NamedType;
 import com.google.gson.Gson;
-import com.mutaki.hexadraw.Circuit;
-import com.mutaki.hexadraw.JunctionBoxDocument;
+import com.mutaki.hexadraw.model.Circuit;
+import com.mutaki.hexadraw.model.document.CircuitDocument;
+import com.mutaki.hexadraw.model.document.Document;
+import com.mutaki.hexadraw.model.document.JunctionBoxDocument;
 
 public class JsonCircuitFileReader {
 

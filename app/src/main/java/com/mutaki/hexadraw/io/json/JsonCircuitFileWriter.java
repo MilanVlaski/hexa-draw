@@ -1,4 +1,4 @@
-package com.mutaki.hexadraw.io;
+package com.mutaki.hexadraw.io.json;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,8 +8,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.jsontype.NamedType;
 import com.google.gson.Gson;
-import com.mutaki.hexadraw.Circuit;
-import com.mutaki.hexadraw.JunctionBoxDocument;
+import com.mutaki.hexadraw.model.Circuit;
+import com.mutaki.hexadraw.model.document.CircuitDocument;
+import com.mutaki.hexadraw.model.document.Document;
+import com.mutaki.hexadraw.model.document.JunctionBoxDocument;
 
 public class JsonCircuitFileWriter {
 
@@ -21,7 +23,6 @@ public class JsonCircuitFileWriter {
     private final ObjectMapper mapper = new ObjectMapper()
 	.enable(SerializationFeature.INDENT_OUTPUT);
 
-    // Pretty-print JSON
     public JsonCircuitFileWriter(Circuit circuit) {
 	this.circuit = circuit;
 	mapper.registerSubtypes(

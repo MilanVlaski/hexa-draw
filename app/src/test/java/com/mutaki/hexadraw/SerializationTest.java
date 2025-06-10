@@ -7,8 +7,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.mutaki.hexadraw.io.JsonCircuitFileReader;
-import com.mutaki.hexadraw.io.JsonCircuitFileWriter;
+import com.mutaki.hexadraw.io.json.JsonCircuitFileReader;
+import com.mutaki.hexadraw.io.json.JsonCircuitFileWriter;
+import com.mutaki.hexadraw.model.Circuit;
+import com.mutaki.hexadraw.model.JunctionBox;
 
 public class SerializationTest {
 

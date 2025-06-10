@@ -1,4 +1,4 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.model;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -8,7 +8,8 @@ import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.geom.Path2D;
 
-import com.mutaki.hexadraw.io.Document;
+import com.mutaki.hexadraw.model.document.Document;
+import com.mutaki.hexadraw.model.document.JunctionBoxDocument;
 
 public class JunctionBox implements Element {
 

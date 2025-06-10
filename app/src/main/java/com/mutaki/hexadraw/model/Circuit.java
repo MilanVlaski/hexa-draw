@@ -1,10 +1,10 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.model;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mutaki.hexadraw.io.CircuitDocument;
+import com.mutaki.hexadraw.model.document.CircuitDocument;
 
 public class Circuit implements Documentable<CircuitDocument> {
 

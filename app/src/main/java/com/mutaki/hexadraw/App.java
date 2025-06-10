@@ -1,8 +1,8 @@
 package com.mutaki.hexadraw;
 
-import static com.mutaki.hexadraw.ComponentNames.CREATE_CIRCUIT_BTN;
-import static com.mutaki.hexadraw.ComponentNames.JUNCTION_BOX_BUTTON;
-import static com.mutaki.hexadraw.ComponentNames.SAVE_BTN;
+import static com.mutaki.hexadraw.views.ComponentNames.CREATE_CIRCUIT_BTN;
+import static com.mutaki.hexadraw.views.ComponentNames.JUNCTION_BOX_BUTTON;
+import static com.mutaki.hexadraw.views.ComponentNames.SAVE_BTN;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -12,8 +12,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+import com.mutaki.hexadraw.canvas.Canvas;
 import com.mutaki.hexadraw.io.SaveableWrapper;
 import com.mutaki.hexadraw.io.Saveables;
+import com.mutaki.hexadraw.model.Circuit;
+import com.mutaki.hexadraw.model.JunctionBoxFactory;
+import com.mutaki.hexadraw.views.CanvasPanel;
+import com.mutaki.hexadraw.views.ComponentNames;
+import com.mutaki.hexadraw.views.CreateCircuitDialog;
+import com.mutaki.hexadraw.views.DialogResult;
 
 public class App {
     public static void main(String[] args) {

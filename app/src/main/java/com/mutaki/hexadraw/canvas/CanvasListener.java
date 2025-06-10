@@ -1,4 +1,4 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.canvas;
 
 public interface CanvasListener {
     void pleaseRepaint();

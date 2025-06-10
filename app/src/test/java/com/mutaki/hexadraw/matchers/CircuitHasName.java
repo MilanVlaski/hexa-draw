@@ -3,7 +3,7 @@ package com.mutaki.hexadraw.matchers;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 
-import com.mutaki.hexadraw.Circuit;
+import com.mutaki.hexadraw.model.Circuit;
 
 public class CircuitHasName extends TypeSafeMatcher<Circuit> {
 

@@ -1,8 +1,8 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.model;
 
 import java.awt.Point;
 
-import com.mutaki.hexadraw.io.Document;
+import com.mutaki.hexadraw.model.document.Document;
 
 /**
  * Element is a placeholder generic name. Obviously, a connector wouldn't have a

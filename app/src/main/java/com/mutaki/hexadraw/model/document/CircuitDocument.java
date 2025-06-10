@@ -1,8 +1,8 @@
-package com.mutaki.hexadraw.io;
+package com.mutaki.hexadraw.model.document;
 
 import java.util.List;
 
-import com.mutaki.hexadraw.Circuit;
+import com.mutaki.hexadraw.model.Circuit;
 
 public class CircuitDocument implements Document<Circuit> {
 

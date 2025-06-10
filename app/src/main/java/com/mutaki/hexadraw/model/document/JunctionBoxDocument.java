@@ -1,8 +1,9 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.model.document;
 
 import java.awt.Point;
 
-import com.mutaki.hexadraw.io.Document;
+import com.mutaki.hexadraw.model.JunctionBox;
+import com.mutaki.hexadraw.model.Location;
 
 public class JunctionBoxDocument implements Document<JunctionBox> {
 

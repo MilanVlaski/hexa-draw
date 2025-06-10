@@ -3,6 +3,9 @@ package com.mutaki.hexadraw;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeDiagnosingMatcher;
 
+import com.mutaki.hexadraw.model.At;
+import com.mutaki.hexadraw.model.Circuit;
+
 public class HasElement extends TypeSafeDiagnosingMatcher<Circuit> {
 
     private final Class<?> elementType;

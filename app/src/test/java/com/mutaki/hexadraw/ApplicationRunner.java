@@ -9,6 +9,8 @@ import org.assertj.swing.finder.WindowFinder;
 import org.assertj.swing.fixture.DialogFixture;
 import org.assertj.swing.fixture.FrameFixture;
 
+import com.mutaki.hexadraw.views.ComponentNames;
+
 public class ApplicationRunner {
 
     private FrameFixture window;

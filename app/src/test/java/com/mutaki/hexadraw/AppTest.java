@@ -1,8 +1,8 @@
 package com.mutaki.hexadraw;
 
-import static com.mutaki.hexadraw.At.at;
 import static com.mutaki.hexadraw.HasElement.hasElement;
 import static com.mutaki.hexadraw.matchers.CircuitHasName.hasName;
+import static com.mutaki.hexadraw.model.At.at;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.awt.Point;
@@ -15,7 +15,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import com.mutaki.hexadraw.io.JsonCircuitFileReader;
+import com.mutaki.hexadraw.io.json.JsonCircuitFileReader;
+import com.mutaki.hexadraw.model.Circuit;
+import com.mutaki.hexadraw.model.JunctionBox;
 
 public class AppTest {
 

@@ -1,7 +1,10 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.canvas;
 
 import java.awt.Graphics;
 import java.awt.Point;
+
+import com.mutaki.hexadraw.model.Circuit;
+import com.mutaki.hexadraw.model.JunctionBoxFactory;
 
 public class Canvas {
 

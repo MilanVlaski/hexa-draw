@@ -1,4 +1,4 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.views;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;
