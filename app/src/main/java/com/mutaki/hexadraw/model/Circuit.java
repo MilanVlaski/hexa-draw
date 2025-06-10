@@ -41,7 +41,7 @@ public class Circuit implements Documentable<CircuitDocument> {
 	return false;
     }
 
-    public void addElement(JunctionBox element) {
+    public void addElement(Element element) {
 	elements.add(element);
     }
 
