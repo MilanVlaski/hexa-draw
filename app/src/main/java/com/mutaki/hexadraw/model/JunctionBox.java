@@ -13,7 +13,7 @@ import com.mutaki.hexadraw.model.document.JunctionBoxDocument;
 
 public class JunctionBox implements Element {
 
-    private Point location;
+    private final Point location;
 
     public JunctionBox(Point location) {
         this.location = location;

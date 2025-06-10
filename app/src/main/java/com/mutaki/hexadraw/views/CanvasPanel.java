@@ -14,6 +14,8 @@ import com.mutaki.hexadraw.canvas.CanvasListener;
 
 public class CanvasPanel extends JPanel implements MouseListener, CanvasListener {
 
+    private static final long serialVersionUID = 2625879956344043096L;
+
     private final Canvas canvas;
 
     public CanvasPanel(Canvas canvas) {

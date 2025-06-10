@@ -15,12 +15,13 @@ import javax.swing.JTextField;
 
 public class CreateCircuitDialog extends JDialog {
 
-    private JTextField nameField = new JTextField(20);
-    private JTextField directoryField = new JTextField(20);
+    private static final long serialVersionUID = 5729688182479031521L;
+    private final JTextField nameField = new JTextField(20);
+    private final JTextField directoryField = new JTextField(20);
 
     private DialogResult result = null;
 
-    public CreateCircuitDialog(Frame owner) {
+    private CreateCircuitDialog(Frame owner) {
 	super(owner, "New Circuit", true);
 	setName(ComponentNames.CIRCUIT_NAME_DIALOG);
 

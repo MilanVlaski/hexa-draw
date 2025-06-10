@@ -18,7 +18,7 @@ import com.mutaki.hexadraw.views.ComponentNames;
 public class SaveableWrapper implements Saveable {
 
     private final Circuit circuit;
-    private Optional<Path> saveDirectory;
+    private final Optional<Path> saveDirectory;
 
     public SaveableWrapper(Circuit circuit, Optional<Path> saveDirectory) {
 	this.circuit = circuit;

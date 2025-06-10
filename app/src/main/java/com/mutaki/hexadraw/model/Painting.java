@@ -2,6 +2,6 @@ package com.mutaki.hexadraw.model;
 
 import java.awt.Graphics;
 
-public interface Painting {
+interface Painting {
     void paint(Graphics g);
 }

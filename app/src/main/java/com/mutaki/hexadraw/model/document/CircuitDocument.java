@@ -9,7 +9,7 @@ public class CircuitDocument implements Document<Circuit> {
     public String name;
     public List<? extends Document<?>> elements;
 
-    public CircuitDocument() {
+    CircuitDocument() {
     }
 
     public CircuitDocument(String name, List<? extends Document<?>> documents) {

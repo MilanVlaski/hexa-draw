@@ -15,7 +15,7 @@ import com.mutaki.hexadraw.model.document.JunctionBoxDocument;
 
 public class JsonCircuitFileWriter {
 
-    private Circuit circuit;
+    private final Circuit circuit;
     private final Gson gson = new Gson();
     private final String FILE_EXTENSION = ".json";
 

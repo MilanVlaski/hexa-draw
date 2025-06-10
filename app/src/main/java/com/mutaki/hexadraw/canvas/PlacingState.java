@@ -3,17 +3,16 @@ package com.mutaki.hexadraw.canvas;
 import java.awt.Point;
 
 import com.mutaki.hexadraw.model.Circuit;
-import com.mutaki.hexadraw.model.JunctionBox;
 import com.mutaki.hexadraw.model.JunctionBoxFactory;
 
-public class PlacingState implements State {
+class PlacingState implements State {
 
-    private JunctionBoxFactory junctionBoxFactory;
-    private Circuit circuit;
-    private CanvasListener canvasListener;
-    private Canvas canvas;
+    private final JunctionBoxFactory junctionBoxFactory;
+    private final Circuit circuit;
+    private final CanvasListener canvasListener;
+    private final Canvas canvas;
 
-    public PlacingState(JunctionBoxFactory junctionBoxFactory, Circuit circuit,
+    PlacingState(JunctionBoxFactory junctionBoxFactory, Circuit circuit,
 	    CanvasListener canvasListener, Canvas canvas) {
 	this.junctionBoxFactory = junctionBoxFactory;
 	this.circuit = circuit;

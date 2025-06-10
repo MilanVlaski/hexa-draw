@@ -1,5 +1,5 @@
 package com.mutaki.hexadraw.io;
 
-public interface Saveable {
+interface Saveable {
     void save();
 }

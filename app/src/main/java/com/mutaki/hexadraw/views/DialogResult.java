@@ -5,10 +5,10 @@ import java.util.Optional;
 
 public class DialogResult {
 
-    public String name;
-    public Optional<Path> location;
+    public final String name;
+    public final Optional<Path> location;
 
-    public DialogResult(String name, Optional<Path> location) {
+    DialogResult(String name, Optional<Path> location) {
 	this.name = name;
 	this.location = location;
     }
