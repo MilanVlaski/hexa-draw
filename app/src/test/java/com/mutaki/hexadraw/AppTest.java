@@ -1,7 +1,7 @@
 package com.mutaki.hexadraw;
 
-import static com.mutaki.hexadraw.HasElement.hasElement;
 import static com.mutaki.hexadraw.matchers.CircuitHasName.hasName;
+import static com.mutaki.hexadraw.matchers.HasElement.hasElement;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.io.IOException;
