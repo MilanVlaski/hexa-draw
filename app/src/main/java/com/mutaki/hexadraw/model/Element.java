@@ -1,7 +1,5 @@
 package com.mutaki.hexadraw.model;
 
-import java.awt.Point;
-
 import com.mutaki.hexadraw.model.document.Document;
 
 /**
@@ -9,5 +7,4 @@ import com.mutaki.hexadraw.model.document.Document;
  * location, exactly.
  */
 public interface Element extends Painting, Documentable<Document<?>> {
-    boolean isAt(Point point);
 }

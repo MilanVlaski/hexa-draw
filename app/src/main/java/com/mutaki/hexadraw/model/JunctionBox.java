@@ -20,11 +20,6 @@ public class JunctionBox implements Element {
     }
 
     @Override
-    public boolean isAt(Point point) {
-        return location.equals(point);
-    }
-
-    @Override
     public Document<JunctionBox> toDocument() {
 	return new JunctionBoxDocument(location);
     }
