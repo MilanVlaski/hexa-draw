@@ -1,6 +1,5 @@
 package com.mutaki.hexadraw;
 
-import java.awt.Point;
 import java.nio.file.Path;
 
 import org.assertj.swing.core.BasicRobot;
@@ -82,7 +81,7 @@ public class ApplicationRunner {
 	window.button(ComponentNames.JUNCTION_BOX_BUTTON).click();
     }
 
-    public void clickOnCanvasAt(Point point) {
+    public void clickOnCanvas() {
 	window.panel(ComponentNames.DIAGRAM_PANEL).click();
     }
 

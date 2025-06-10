@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.jsontype.NamedType;
 import com.google.gson.Gson;
 import com.mutaki.hexadraw.model.Circuit;
@@ -17,7 +18,8 @@ public class JsonCircuitFileReader {
     private final Path circuitDocumentPath;
     private final Gson gson = new Gson();
 
-    private final ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper()
+	    .enable(SerializationFeature.INDENT_OUTPUT);
 
     public JsonCircuitFileReader(Path circuitDocumentPath) {
 	this.circuitDocumentPath = circuitDocumentPath;

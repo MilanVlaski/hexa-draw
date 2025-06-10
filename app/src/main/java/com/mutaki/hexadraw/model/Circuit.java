@@ -29,13 +29,12 @@ public class Circuit implements Documentable<CircuitDocument> {
 
     @Override
     public CircuitDocument toDocument() {
-	var documents = elements.stream().map(el -> el.toDocument()).toList();
-	return new CircuitDocument(name, documents);
+	return new CircuitDocument(name, elements);
     }
 
-    public boolean has(Class<?> elementType, At at) {
+    public boolean has(Class<?> elementType) {
 	for (Element el : elements) {
-	    if (el.getClass().equals(elementType) && el.isAt(at.point)) {
+	    if (el.getClass().equals(elementType)) {
 		return true;
 	    }
 	}

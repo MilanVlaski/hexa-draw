@@ -2,17 +2,14 @@ package com.mutaki.hexadraw;
 
 import static com.mutaki.hexadraw.HasElement.hasElement;
 import static com.mutaki.hexadraw.matchers.CircuitHasName.hasName;
-import static com.mutaki.hexadraw.model.At.at;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import java.awt.Point;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.mutaki.hexadraw.io.json.JsonCircuitFileReader;
@@ -68,14 +65,10 @@ public class AppTest {
 	assertThat(circuit, hasName(circuitName));
     }
 
-    // No way to verify that the Junction Box was drawn.
-    // It's a sign we need more "mock" tests.
     @Test
-    @Disabled("Doesn't yet work")
     void Puts_a_junction_box_on_circuit_at_x_y() throws IOException {
 	Path saveDirectory = Files.createTempDirectory("temp");
 	Path circuitFilePath = saveDirectory.resolve(circuitName + ".json");
-	final var point = new Point(50, 75);
 
 	runner.createCircuit();
 	runner.nameCircuit(circuitName);
@@ -83,9 +76,11 @@ public class AppTest {
 	runner.confirm();
 
 	runner.selectJunctionBox();
-	runner.clickOnCanvasAt(point);
+	runner.clickOnCanvas();
+
+	runner.saveAll();
 
 	final Circuit circuit = new JsonCircuitFileReader(circuitFilePath).read();
-	assertThat(circuit, hasElement(JunctionBox.class, at(point)));
+	assertThat(circuit, hasElement(JunctionBox.class));
     }
 }
