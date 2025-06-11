@@ -13,6 +13,7 @@ public class CircuitDocument implements Document<Circuit> {
     CircuitDocument() {
     }
 
+    @SuppressWarnings("unchecked")
     public CircuitDocument(String name,
 	    List<Element> elements) {
 	this.name = name;
