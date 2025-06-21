@@ -8,7 +8,7 @@ import com.mutaki.hexadraw.model.Element;
 public class CircuitDocument implements Document<Circuit> {
 
     public String name;
-    public List<? extends Document<Element>> elements;
+    public List<Document<Element>> elements;
 
     CircuitDocument() {
     }
@@ -17,8 +17,8 @@ public class CircuitDocument implements Document<Circuit> {
     public CircuitDocument(String name,
 	    List<Element> elements) {
 	this.name = name;
-	this.elements = (List<? extends Document<Element>>) elements.stream()
-	    .map(el -> el.toDocument())
+	this.elements = elements.stream()
+	    .map(el -> (Document<Element>) el.toDocument())
 	    .toList();
     }
 
@@ -26,7 +26,7 @@ public class CircuitDocument implements Document<Circuit> {
     public Circuit toModel() {
 	var els = elements
 	    .stream()
-	    .map(el -> el.toModel())
+	    .map(Document::toModel)
 	    .toList();
 	return new Circuit(name, els);
     }
