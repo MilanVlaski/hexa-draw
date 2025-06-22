@@ -5,15 +5,15 @@ import java.awt.Point;
 import com.mutaki.hexadraw.model.Circuit;
 import com.mutaki.hexadraw.model.JunctionBoxFactory;
 
-class PlacingState implements State {
+class PlacingElement implements CanvasState {
 
     private final JunctionBoxFactory junctionBoxFactory;
     private final Circuit circuit;
     private final CanvasPanel canvasPanel;
     private final Canvas canvas;
 
-    PlacingState(JunctionBoxFactory junctionBoxFactory, Circuit circuit,
-                 CanvasPanel canvasPanel, Canvas canvas) {
+    PlacingElement(JunctionBoxFactory junctionBoxFactory, Circuit circuit,
+                   CanvasPanel canvasPanel, Canvas canvas) {
         this.junctionBoxFactory = junctionBoxFactory;
         this.circuit = circuit;
         this.canvasPanel = canvasPanel;

@@ -2,7 +2,7 @@ package com.mutaki.hexadraw.canvas;
 
 import java.awt.Point;
 
-interface State {
+interface CanvasState {
 
     void click(Point point);
 

@@ -10,7 +10,7 @@ public class Canvas {
 
     private final Circuit circuit;
     private CanvasPanel canvasPanel;
-    private State state = new NothingState();
+    private CanvasState state = new DefaultState();
 
     public Canvas(Circuit circuit) {
         this.circuit = circuit;
@@ -25,11 +25,11 @@ public class Canvas {
     }
 
     public void toPlacingState(JunctionBoxFactory junctionBoxFactory) {
-        this.state = new PlacingState(junctionBoxFactory, circuit, canvasPanel, this);
+        this.state = new PlacingElement(junctionBoxFactory, circuit, canvasPanel, this);
     }
 
     void resetState() {
-        state = new NothingState();
+        state = new DefaultState();
     }
 
     public void paint(Graphics g) {

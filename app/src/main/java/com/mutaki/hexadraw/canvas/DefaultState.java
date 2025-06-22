@@ -2,7 +2,7 @@ package com.mutaki.hexadraw.canvas;
 
 import java.awt.Point;
 
-class NothingState implements State {
+class DefaultState implements CanvasState {
 
     @Override
     public void click(Point point) {
