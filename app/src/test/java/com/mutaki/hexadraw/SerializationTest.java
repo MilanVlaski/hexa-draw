@@ -19,11 +19,11 @@ public class SerializationTest {
 
     @Test
     void Object_from_model_to_document_back_to_model() throws IOException {
-	Path saveDirectory = Path.of(""); // Files.createTempDirectory("temp");
-	var circuit = new Circuit(name, List.of(new JunctionBox(point)));
-	new JsonCircuitFileWriter(circuit).write(saveDirectory);
+        Path saveDirectory = Path.of(""); // Files.createTempDirectory("temp");
+        var circuit = new Circuit(name, List.of(new JunctionBox(point)));
+        new JsonCircuitFileWriter(circuit).write(saveDirectory);
 
-	Path circuitFilePath = saveDirectory.resolve(name + ".json");
-	var writeCircuit = new JsonCircuitFileReader(circuitFilePath).read();
+        Path circuitFilePath = saveDirectory.resolve(name + ".json");
+        var writeCircuit = new JsonCircuitFileReader(circuitFilePath).read();
     }
 }

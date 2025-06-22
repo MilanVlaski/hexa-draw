@@ -9,8 +9,8 @@ public class DialogResult {
     public final Optional<Path> location;
 
     DialogResult(String name, Optional<Path> location) {
-	this.name = name;
-	this.location = location;
+        this.name = name;
+        this.location = location;
     }
 
 }

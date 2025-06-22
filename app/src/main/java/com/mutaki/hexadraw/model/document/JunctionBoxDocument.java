@@ -13,12 +13,12 @@ public class JunctionBoxDocument implements Document<JunctionBox> {
     }
 
     public JunctionBoxDocument(Point location) {
-	this.location = new Location(location.x, location.y);
+        this.location = new Location(location.x, location.y);
     }
 
     @Override
     public JunctionBox toModel() {
-	return new JunctionBox(new Point(location.x, location.y));
+        return new JunctionBox(new Point(location.x, location.y));
     }
 
 }

@@ -15,20 +15,20 @@ public class CircuitDocument implements Document<Circuit> {
 
     @SuppressWarnings("unchecked")
     public CircuitDocument(String name,
-	    List<Element> elements) {
-	this.name = name;
-	this.elements = elements.stream()
-	    .map(el -> (Document<Element>) el.toDocument())
-	    .toList();
+                           List<Element> elements) {
+        this.name = name;
+        this.elements = elements.stream()
+            .map(el -> (Document<Element>) el.toDocument())
+            .toList();
     }
 
     @Override
     public Circuit toModel() {
-	var els = elements
-	    .stream()
-	    .map(Document::toModel)
-	    .toList();
-	return new Circuit(name, els);
+        var els = elements
+            .stream()
+            .map(Document::toModel)
+            .toList();
+        return new Circuit(name, els);
     }
 
 }

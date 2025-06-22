@@ -8,11 +8,11 @@ public class Saveables {
     private final List<Saveable> saveables = new ArrayList<>();
 
     public void add(Saveable saveable) {
-	saveables.add(saveable);
+        saveables.add(saveable);
     }
 
     public void save() {
-	saveables.forEach(Saveable::save);
+        saveables.forEach(Saveable::save);
     }
 
 }

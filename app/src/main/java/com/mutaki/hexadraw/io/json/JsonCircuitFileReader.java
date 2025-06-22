@@ -17,18 +17,18 @@ public class JsonCircuitFileReader {
     private final ObjectMapper mapper = CustomObjectMapper.mapper();
 
     public JsonCircuitFileReader(Path circuitDocumentPath) {
-	this.circuitDocumentPath = circuitDocumentPath;
+        this.circuitDocumentPath = circuitDocumentPath;
     }
 
     public Circuit read() {
-	try {
-	    String json = Files.readString(circuitDocumentPath);
-	    return mapper.readValue(json, CircuitDocument.class)
-		.toModel();
-	} catch (IOException e) {
-	    // TODO this can't be handled here. Rethrow as runtime?
-	    e.printStackTrace();
-	    return null;
-	}
+        try {
+            String json = Files.readString(circuitDocumentPath);
+            return mapper.readValue(json, CircuitDocument.class)
+                .toModel();
+        } catch (IOException e) {
+            // TODO this can't be handled here. Rethrow as runtime?
+            e.printStackTrace();
+            return null;
+        }
     }
 }

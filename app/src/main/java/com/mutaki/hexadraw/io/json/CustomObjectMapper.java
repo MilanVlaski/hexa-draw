@@ -10,14 +10,14 @@ import com.mutaki.hexadraw.model.document.JunctionBoxDocument;
 public class CustomObjectMapper {
 
     public static ObjectMapper mapper() {
-	var mapper = new ObjectMapper()
-	    .enable(SerializationFeature.INDENT_OUTPUT);
-	mapper.registerSubtypes(
-		new NamedType(JunctionBoxDocument.class, "junctionBox"),
-		new NamedType(CircuitDocument.class, "circuit"));
+        var mapper = new ObjectMapper()
+            .enable(SerializationFeature.INDENT_OUTPUT);
+        mapper.registerSubtypes(
+            new NamedType(JunctionBoxDocument.class, "junctionBox"),
+            new NamedType(CircuitDocument.class, "circuit"));
 
-	mapper.addMixIn(Document.class, DocumentSerializationMixin.class);
+        mapper.addMixIn(Document.class, DocumentSerializationMixin.class);
 
-	return mapper;
+        return mapper;
     }
 }

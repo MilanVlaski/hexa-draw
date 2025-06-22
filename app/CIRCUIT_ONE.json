@@ -1,11 +1,13 @@
 {
-  "type" : "circuit",
-  "name" : "CIRCUIT_ONE",
-  "elements" : [ {
-    "type" : "junctionBox",
-    "location" : {
-      "x" : 5,
-      "y" : 5
-    }
-  } ]
+    "type": "circuit",
+    "name": "CIRCUIT_ONE",
+    "elements": [
+        {
+            "type": "junctionBox",
+            "location": {
+                "x": 5,
+                "y": 5
+            }
+        }
+    ]
 }

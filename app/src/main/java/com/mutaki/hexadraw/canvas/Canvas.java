@@ -13,27 +13,27 @@ public class Canvas {
     private State state = new NothingState();
 
     public Canvas(Circuit circuit) {
-	this.circuit = circuit;
+        this.circuit = circuit;
     }
 
     public void clicked(Point point) {
-	state.click(point);
+        state.click(point);
     }
 
     public void addCanvasListener(CanvasListener canvasListener) {
-	this.canvasListener = canvasListener;
+        this.canvasListener = canvasListener;
     }
 
     public void toPlacingState(JunctionBoxFactory junctionBoxFactory) {
-	this.state = new PlacingState(junctionBoxFactory, circuit, canvasListener, this);
+        this.state = new PlacingState(junctionBoxFactory, circuit, canvasListener, this);
     }
 
     void resetState() {
-	state = new NothingState();
+        state = new NothingState();
     }
 
     public void paint(Graphics g) {
-	circuit.paint(g);
+        circuit.paint(g);
     }
 
 }

@@ -12,41 +12,41 @@ public class Circuit implements Documentable<CircuitDocument> {
     private final List<Element> elements;
 
     public Circuit(String name) {
-	this(name, new ArrayList<>());
+        this(name, new ArrayList<>());
     }
 
     public Circuit(String name, List<Element> elements) {
-	this.name = name;
-	this.elements = elements;
+        this.name = name;
+        this.elements = elements;
     }
 
     /**
      * Can have spaces. May be different from the filename.
      */
     public String name() {
-	return name;
+        return name;
     }
 
     @Override
     public CircuitDocument toDocument() {
-	return new CircuitDocument(name, elements);
+        return new CircuitDocument(name, elements);
     }
 
     public boolean has(Class<?> elementType) {
-	for (Element el : elements) {
-	    if (el.getClass().equals(elementType)) {
-		return true;
-	    }
-	}
-	return false;
+        for (Element el : elements) {
+            if (el.getClass().equals(elementType)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void addElement(Element element) {
-	elements.add(element);
+        elements.add(element);
     }
 
     public void paint(Graphics g) {
-	elements.forEach(el -> el.paint(g));
+        elements.forEach(el -> el.paint(g));
     }
 
 }

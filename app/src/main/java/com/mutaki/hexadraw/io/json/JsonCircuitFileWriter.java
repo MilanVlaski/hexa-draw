@@ -15,22 +15,22 @@ public class JsonCircuitFileWriter {
     private final ObjectMapper mapper = CustomObjectMapper.mapper();
 
     public JsonCircuitFileWriter(Circuit circuit) {
-	this.circuit = circuit;
+        this.circuit = circuit;
     }
 
     public void write(Path directory) {
-	try {
-	    CircuitDocument document = circuit.toDocument();
-	    String json = mapper.writeValueAsString(document);
-	    Files.createDirectories(directory);
-	    Files.write(directory.resolve(fileName()), json.getBytes());
-	} catch (Exception e) {
-	    e.printStackTrace();
-	}
+        try {
+            CircuitDocument document = circuit.toDocument();
+            String json = mapper.writeValueAsString(document);
+            Files.createDirectories(directory);
+            Files.write(directory.resolve(fileName()), json.getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private String fileName() {
-	return circuit.name() + FILE_EXTENSION;
+        return circuit.name() + FILE_EXTENSION;
     }
 
 }

@@ -7,10 +7,10 @@ plugins {
 }
 
 dependencies {
-	implementation libs.gson
-	implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.0'
-	testImplementation libs.hamcrest
-	testImplementation libs.assertj.swing
+    implementation libs.gson
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.0'
+    testImplementation libs.hamcrest
+    testImplementation libs.assertj.swing
 }
 
 application {

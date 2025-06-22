@@ -6,7 +6,7 @@ class NothingState implements State {
 
     @Override
     public void click(Point point) {
-	// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
     }
 
