@@ -9,7 +9,7 @@ import com.mutaki.hexadraw.model.JunctionBoxFactory;
 public class Canvas {
 
     private final Circuit circuit;
-    private CanvasListener canvasListener;
+    private CanvasPanel canvasPanel;
     private State state = new NothingState();
 
     public Canvas(Circuit circuit) {
@@ -20,12 +20,12 @@ public class Canvas {
         state.click(point);
     }
 
-    public void addCanvasListener(CanvasListener canvasListener) {
-        this.canvasListener = canvasListener;
+    public void addCanvasListener(CanvasPanel canvasPanel) {
+        this.canvasPanel = canvasPanel;
     }
 
     public void toPlacingState(JunctionBoxFactory junctionBoxFactory) {
-        this.state = new PlacingState(junctionBoxFactory, circuit, canvasListener, this);
+        this.state = new PlacingState(junctionBoxFactory, circuit, canvasPanel, this);
     }
 
     void resetState() {

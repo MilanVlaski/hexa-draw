@@ -9,14 +9,14 @@ class PlacingState implements State {
 
     private final JunctionBoxFactory junctionBoxFactory;
     private final Circuit circuit;
-    private final CanvasListener canvasListener;
+    private final CanvasPanel canvasPanel;
     private final Canvas canvas;
 
     PlacingState(JunctionBoxFactory junctionBoxFactory, Circuit circuit,
-                 CanvasListener canvasListener, Canvas canvas) {
+                 CanvasPanel canvasPanel, Canvas canvas) {
         this.junctionBoxFactory = junctionBoxFactory;
         this.circuit = circuit;
-        this.canvasListener = canvasListener;
+        this.canvasPanel = canvasPanel;
         this.canvas = canvas;
     }
 
@@ -24,7 +24,7 @@ class PlacingState implements State {
     public void click(Point point) {
         var element = junctionBoxFactory.create(point);
         circuit.addElement(element);
-        canvasListener.pleaseRepaint();
+        canvasPanel.pleaseRepaint();
         canvas.resetState();
     }
 

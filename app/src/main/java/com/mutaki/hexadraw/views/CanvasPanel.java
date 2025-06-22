@@ -10,9 +10,8 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 
 import com.mutaki.hexadraw.canvas.Canvas;
-import com.mutaki.hexadraw.canvas.CanvasListener;
 
-public class CanvasPanel extends JPanel implements MouseListener, CanvasListener {
+public class CanvasPanel extends JPanel implements MouseListener, com.mutaki.hexadraw.canvas.CanvasPanel {
 
     private static final long serialVersionUID = 2625879956344043096L;
 

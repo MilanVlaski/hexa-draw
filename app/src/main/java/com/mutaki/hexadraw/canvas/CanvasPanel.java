@@ -1,5 +1,5 @@
 package com.mutaki.hexadraw.canvas;
 
-public interface CanvasListener {
+public interface CanvasPanel {
     void pleaseRepaint();
 }
