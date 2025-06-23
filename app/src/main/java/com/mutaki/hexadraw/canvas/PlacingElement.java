@@ -12,6 +12,9 @@ class PlacingElement implements CanvasState {
     private final CanvasPanel canvasPanel;
     private final Canvas canvas;
 
+    // This JBox factory is probably an abstraction called SoloElementFactory or
+    // ElementFactory. Shuld stay like this because I don't know if Placing only
+    // applies to single elements, or single elements AND connectors.
     PlacingElement(JunctionBoxFactory junctionBoxFactory, Circuit circuit,
                    CanvasPanel canvasPanel, Canvas canvas) {
         this.junctionBoxFactory = junctionBoxFactory;
