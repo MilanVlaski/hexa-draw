@@ -20,11 +20,11 @@ public class Canvas {
         state.click(point);
     }
 
-    public void addCanvasListener(CanvasPanel canvasPanel) {
+    public void addCanvasPanel(CanvasPanel canvasPanel) {
         this.canvasPanel = canvasPanel;
     }
 
-    public void toPlacingState(JunctionBoxFactory junctionBoxFactory) {
+    public void startPlacing(JunctionBoxFactory junctionBoxFactory) {
         this.state = new PlacingElement(junctionBoxFactory, circuit, canvasPanel, this);
     }
 

@@ -1,23 +1,20 @@
 package com.mutaki.hexadraw.views;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import com.mutaki.hexadraw.canvas.Canvas;
+import com.mutaki.hexadraw.canvas.CanvasPanel;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JPanel;
-
-import com.mutaki.hexadraw.canvas.Canvas;
-
-public class CanvasPanel extends JPanel implements MouseListener, com.mutaki.hexadraw.canvas.CanvasPanel {
+public class CanvasJPanel extends JPanel implements MouseListener, CanvasPanel {
 
     private static final long serialVersionUID = 2625879956344043096L;
 
     private final Canvas canvas;
 
-    public CanvasPanel(Canvas canvas) {
+    public CanvasJPanel(Canvas canvas) {
         super();
         this.canvas = canvas;
         setName(ComponentNames.DIAGRAM_PANEL);

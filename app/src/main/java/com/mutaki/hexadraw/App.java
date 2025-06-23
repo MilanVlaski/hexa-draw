@@ -17,7 +17,7 @@ import com.mutaki.hexadraw.io.SaveableWrapper;
 import com.mutaki.hexadraw.io.Saveables;
 import com.mutaki.hexadraw.model.Circuit;
 import com.mutaki.hexadraw.model.JunctionBoxFactory;
-import com.mutaki.hexadraw.views.CanvasPanel;
+import com.mutaki.hexadraw.views.CanvasJPanel;
 import com.mutaki.hexadraw.views.ComponentNames;
 import com.mutaki.hexadraw.views.CreateCircuitDialog;
 import com.mutaki.hexadraw.views.DialogResult;
@@ -52,7 +52,7 @@ public class App {
         junctBoxButton.setName(JUNCTION_BOX_BUTTON);
         // canvas might be a Listener for state changes
         junctBoxButton.addActionListener(e -> {
-            canvas.toPlacingState((new JunctionBoxFactory()));
+            canvas.startPlacing((new JunctionBoxFactory()));
         });
 
         JPanel topPanel = new JPanel();
@@ -72,8 +72,8 @@ public class App {
 
         saveables.add(new SaveableWrapper(circuit, dialogResult.location));
         final var canvas = new Canvas(circuit);
-        var drawPanel = new CanvasPanel(canvas);
-        canvas.addCanvasListener(drawPanel);
+        var drawPanel = new CanvasJPanel(canvas);
+        canvas.addCanvasPanel(drawPanel);
         this.canvas = canvas;
 
         frame.add(drawPanel, BorderLayout.CENTER);
