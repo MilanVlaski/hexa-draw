@@ -7,16 +7,28 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.geom.Path2D;
+import java.util.List;
 
+import com.mutaki.hexadraw.JunctionPoint;
 import com.mutaki.hexadraw.model.document.Document;
 import com.mutaki.hexadraw.model.document.JunctionBoxDocument;
 
 public class JunctionBox implements Element {
 
     private final Point location;
+    private final JunctionPoint[] junctionPoints;
 
     public JunctionBox(Point location) {
+        this(location, junctionPoints(location));
+    }
+
+    private static JunctionPoint[] junctionPoints(Point location) {
+        return new JunctionPoint[]{new JunctionPoint(location)};
+    }
+
+    public JunctionBox(Point location, JunctionPoint... junctionPoints) {
         this.location = location;
+        this.junctionPoints = junctionPoints;
     }
 
     @Override

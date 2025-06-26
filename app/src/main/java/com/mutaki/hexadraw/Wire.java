@@ -1,6 +1,11 @@
 package com.mutaki.hexadraw;
 
-public class Wire {
+import com.mutaki.hexadraw.model.Element;
+import com.mutaki.hexadraw.model.document.Document;
+
+import java.awt.*;
+
+public class Wire implements Element {
     private final JunctionPoint junctionPoint1;
     private final JunctionPoint junctionPoint2;
 
@@ -10,5 +15,15 @@ public class Wire {
         }
         this.junctionPoint1 = junctionPoint1;
         this.junctionPoint2 = junctionPoint2;
+    }
+
+    @Override
+    public Document<?> toDocument() {
+        return null;
+    }
+
+    @Override
+    public void paint(Graphics g) {
+
     }
 }
