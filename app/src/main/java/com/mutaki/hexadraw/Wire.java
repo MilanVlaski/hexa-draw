@@ -19,11 +19,12 @@ public class Wire implements Element {
 
     @Override
     public Document<?> toDocument() {
+        // TODO
         return null;
     }
 
     @Override
     public void paint(Graphics g) {
-
+        // TODO
     }
 }

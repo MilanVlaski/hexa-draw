@@ -1,8 +1,22 @@
 package com.mutaki.hexadraw;
 
+import com.mutaki.hexadraw.model.Element;
+import com.mutaki.hexadraw.model.document.Document;
+
 import java.awt.*;
 
-public class JunctionPoint {
+public class JunctionPoint implements Element {
+    @Override
+    public Document<?> toDocument() {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        // TODO
+    }
+
     private final Point location;
 
     public JunctionPoint(Point location) {
