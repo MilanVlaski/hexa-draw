@@ -1,7 +1,8 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.helpers;
 
 import java.nio.file.Path;
 
+import com.mutaki.hexadraw.App;
 import org.assertj.swing.core.BasicRobot;
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.finder.WindowFinder;
