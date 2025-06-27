@@ -8,7 +8,7 @@ import com.mutaki.hexadraw.model.document.Document;
 
 import java.awt.*;
 
-public class JunctionBox implements Element {
+public class JunctionPoint implements Element {
 
     private final int width;
     private final int height;
@@ -27,7 +27,7 @@ public class JunctionBox implements Element {
 
     private final Point location;
 
-    public JunctionBox(Point location) {
+    public JunctionPoint(Point location) {
         this.location = location;
         width = 20;
         height = 20;
@@ -38,7 +38,7 @@ public class JunctionBox implements Element {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
 
-        JunctionBox that = (JunctionBox) o;
+        JunctionPoint that = (JunctionPoint) o;
         return location.equals(that.location);
     }
 

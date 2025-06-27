@@ -9,7 +9,7 @@ public class WireTest {
 
     @Test
     void Wire_cant_connect_two_identical_elements() {
-        var junctionPoint = new JunctionBox(new Point(5, 5));
+        var junctionPoint = new JunctionPoint(new Point(5, 5));
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             new Wire(junctionPoint, junctionPoint);
         });
@@ -18,8 +18,8 @@ public class WireTest {
     @Test
     void Wire_cant_connect_two_equal_elements() {
         Point point = new Point(5, 5);
-        var junctionPoint1 = new JunctionBox(point);
-        var junctionPoint2 = new JunctionBox(point);
+        var junctionPoint1 = new JunctionPoint(point);
+        var junctionPoint2 = new JunctionPoint(point);
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             new Wire(junctionPoint1, junctionPoint2);
         });
@@ -28,7 +28,7 @@ public class WireTest {
     @Test
     void Wire_cant_connect_two_different_junction_with_different_but_equal_locations() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new Wire(new JunctionBox(new Point(5, 5)), new JunctionBox(new Point(5, 5)));
+            new Wire(new JunctionPoint(new Point(5, 5)), new JunctionPoint(new Point(5, 5)));
         });
     }
 }

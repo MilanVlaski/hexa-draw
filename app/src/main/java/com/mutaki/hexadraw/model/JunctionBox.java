@@ -9,6 +9,7 @@ import java.awt.RenderingHints;
 import java.awt.geom.Path2D;
 import java.util.Set;
 
+import com.mutaki.hexadraw.JunctionPoint;
 import com.mutaki.hexadraw.canvas.OnHitCallback;
 import com.mutaki.hexadraw.model.document.Document;
 import com.mutaki.hexadraw.model.document.JunctionBoxDocument;
@@ -19,18 +20,18 @@ public class JunctionBox implements Element {
     private final int height;
     private final Point location;
     private final Rectangle bounds;
-    private final Set<com.mutaki.hexadraw.JunctionBox> junctionPoints;
+    private final Set<JunctionPoint> junctionPoints;
 
     public JunctionBox(Point location) {
         this(location, junctionPoints(location));
     }
 
     // TODO make this give appropriate default Junction points
-    private static Set<com.mutaki.hexadraw.JunctionBox> junctionPoints(Point location) {
-        return Set.of(new com.mutaki.hexadraw.JunctionBox(location));
+    private static Set<JunctionPoint> junctionPoints(Point location) {
+        return Set.of(new JunctionPoint(location));
     }
 
-    public JunctionBox(Point location, Set<com.mutaki.hexadraw.JunctionBox> junctionPoints) {
+    public JunctionBox(Point location, Set<JunctionPoint> junctionPoints) {
         this.location = location;
         this.junctionPoints = junctionPoints;
         this.width = 200;
@@ -52,8 +53,6 @@ public class JunctionBox implements Element {
         // Calculate centered rectangle position (200x100)
         int rectX = location.x - 100; // Center horizontally
         int rectY = location.y - 50; // Center vertically
-        Rectangle bounds = new Rectangle(rectX, rectY, 200, 100);
-
         // Draw the rectangle
         g2d.setColor(Color.LIGHT_GRAY);
         g2d.fill(bounds);

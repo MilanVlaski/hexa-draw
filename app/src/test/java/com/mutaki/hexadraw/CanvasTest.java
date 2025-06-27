@@ -45,10 +45,10 @@ public class CanvasTest {
 
 
         when(jboxFactory.create(jbox1Location)).thenReturn(
-            new com.mutaki.hexadraw.model.JunctionBox(jbox1Location, Set.of(new JunctionBox(jpoint1Location)))
+            new com.mutaki.hexadraw.model.JunctionBox(jbox1Location, Set.of(new JunctionPoint(jpoint1Location)))
         );
         when(jboxFactory.create(jbox2Location)).thenReturn(
-            new com.mutaki.hexadraw.model.JunctionBox(jbox2Location, Set.of(new JunctionBox(jpoint2Location)))
+            new com.mutaki.hexadraw.model.JunctionBox(jbox2Location, Set.of(new JunctionPoint(jpoint2Location)))
         );
 
         Canvas canvas = new Canvas(circuit);

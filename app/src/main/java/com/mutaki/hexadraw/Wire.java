@@ -7,10 +7,10 @@ import com.mutaki.hexadraw.model.document.Document;
 import java.awt.*;
 
 public class Wire implements Element {
-    private final JunctionBox junctionPoint1;
-    private final JunctionBox junctionPoint2;
+    private final JunctionPoint junctionPoint1;
+    private final JunctionPoint junctionPoint2;
 
-    public Wire(JunctionBox junctionPoint1, JunctionBox junctionPoint2) {
+    public Wire(JunctionPoint junctionPoint1, JunctionPoint junctionPoint2) {
         if(junctionPoint1.equals(junctionPoint2)) {
             throw new IllegalArgumentException("JunctionPoints must not be equal");
         }
