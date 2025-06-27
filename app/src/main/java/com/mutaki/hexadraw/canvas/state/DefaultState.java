@@ -22,11 +22,11 @@ public class DefaultState implements CanvasState {
     }
 
     @Override
-    public void hitSuccessful(ElementHitEvent elementHitEvent) {
-        switch (elementHitEvent.elementType) {
+    public void hitSuccessful(ElementHitEvent event) {
+        switch (event.elementType) {
             case Connectee -> {
                 // Junction point is our one and only connectee for now :)
-                canvas.startConnecting(elementHitEvent.junctionPoint);
+                canvas.startConnecting(event.junctionPoint);
             }
         }
     }
