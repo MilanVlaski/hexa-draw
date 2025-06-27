@@ -1,13 +1,14 @@
 package com.mutaki.hexadraw;
 
 import com.mutaki.hexadraw.canvas.OnHitCallback;
+import com.mutaki.hexadraw.model.Element;
 import com.mutaki.hexadraw.model.events.ElementHitEvent;
 import com.mutaki.hexadraw.model.events.ElementType;
 import com.mutaki.hexadraw.model.document.Document;
 
 import java.awt.*;
 
-public class JunctionBox implements com.mutaki.hexadraw.model.Element {
+public class JunctionBox implements Element {
 
     private final int width;
     private final int height;
