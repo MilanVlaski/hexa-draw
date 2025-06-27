@@ -15,10 +15,9 @@ public class CanvasJPanel extends JPanel implements MouseListener, CanvasPanel {
     private final Canvas canvas;
 
     public CanvasJPanel(Canvas canvas) {
-        super();
         this.canvas = canvas;
         setName(ComponentNames.DIAGRAM_PANEL);
-        // Ah yes. Listen to yourself.
+        // Maybe the mouse listener events get sent to canvas..
         addMouseListener(this);
     }
 

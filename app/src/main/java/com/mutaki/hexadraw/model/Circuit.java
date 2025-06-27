@@ -1,9 +1,10 @@
 package com.mutaki.hexadraw.model;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mutaki.hexadraw.canvas.OnHitCallback;
 import com.mutaki.hexadraw.model.document.CircuitDocument;
 
 public class Circuit implements Documentable<CircuitDocument> {
@@ -49,4 +50,8 @@ public class Circuit implements Documentable<CircuitDocument> {
         elements.forEach(el -> el.paint(g));
     }
 
+    // TODO extract to interface, called
+    public void hit(Point point, OnHitCallback onHitCallback) {
+        elements.forEach(el -> el.hit(point, onHitCallback));
+    }
 }

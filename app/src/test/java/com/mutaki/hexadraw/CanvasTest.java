@@ -5,10 +5,10 @@ import com.mutaki.hexadraw.canvas.CanvasPanel;
 import com.mutaki.hexadraw.model.Circuit;
 import com.mutaki.hexadraw.model.JunctionBox;
 import com.mutaki.hexadraw.model.JunctionBoxFactory;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
+import java.util.Set;
 
 import static org.mockito.Mockito.*;
 
@@ -33,7 +33,6 @@ public class CanvasTest {
     }
 
     @Test
-    @Disabled("To do.")
     void Connects_two_junction_boxes() {
         var jbox1Location = new Point(7, 7);
         var jbox2Location = new Point(57, 57);
@@ -47,10 +46,10 @@ public class CanvasTest {
 
 
         when(jboxFactory.create(jbox1Location)).thenReturn(
-            new JunctionBox(jbox1Location, new JunctionPoint(jpoint1Location))
+            new JunctionBox(jbox1Location, Set.of(new Element(jpoint1Location)))
         );
         when(jboxFactory.create(jbox2Location)).thenReturn(
-            new JunctionBox(jbox2Location, new JunctionPoint(jpoint2Location))
+            new JunctionBox(jbox2Location, Set.of(new Element(jpoint2Location)))
         );
 
         Canvas canvas = new Canvas(circuit);

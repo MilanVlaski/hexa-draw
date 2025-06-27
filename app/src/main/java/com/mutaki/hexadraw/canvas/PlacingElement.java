@@ -3,6 +3,7 @@ package com.mutaki.hexadraw.canvas;
 import java.awt.Point;
 
 import com.mutaki.hexadraw.model.Circuit;
+import com.mutaki.hexadraw.model.ElementHitEvent;
 import com.mutaki.hexadraw.model.JunctionBoxFactory;
 
 class PlacingElement implements CanvasState {
@@ -31,4 +32,8 @@ class PlacingElement implements CanvasState {
         canvas.resetState();
     }
 
+    @Override
+    public void hitSuccessful(ElementHitEvent elementHitEvent) {
+
+    }
 }

@@ -4,16 +4,19 @@ import java.awt.Graphics;
 import java.awt.Point;
 
 import com.mutaki.hexadraw.model.Circuit;
+import com.mutaki.hexadraw.model.ElementHitEvent;
 import com.mutaki.hexadraw.model.JunctionBoxFactory;
+import com.mutaki.hexadraw.model.Element;
 
-public class Canvas {
+public class Canvas implements OnHitCallback {
 
     private final Circuit circuit;
     private CanvasPanel canvasPanel;
-    private CanvasState state = new DefaultState();
+    private CanvasState state;
 
     public Canvas(Circuit circuit) {
         this.circuit = circuit;
+        this.state = new DefaultState(circuit, this);
     }
 
     public void clicked(Point point) {
@@ -29,11 +32,19 @@ public class Canvas {
     }
 
     void resetState() {
-        state = new DefaultState();
+        state = new DefaultState(circuit, this);
     }
 
     public void paint(Graphics g) {
         circuit.paint(g);
     }
 
+    @Override
+    public void hitSuccessful(ElementHitEvent elementHitEvent) {
+        state.hitSuccessful(elementHitEvent);
+    }
+
+    public void startConnecting(Element junctionPoint) {
+        this.state = new ConnectingElements(junctionPoint, circuit, canvasPanel, this);
+    }
 }
