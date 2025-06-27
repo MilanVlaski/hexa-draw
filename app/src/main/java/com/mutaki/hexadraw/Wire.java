@@ -1,6 +1,6 @@
 package com.mutaki.hexadraw;
 
-import com.mutaki.hexadraw.canvas.OnHitCallback;
+import com.mutaki.hexadraw.canvas.OnHitListener;
 import com.mutaki.hexadraw.model.Element;
 import com.mutaki.hexadraw.model.document.Document;
 
@@ -30,7 +30,7 @@ public class Wire implements Element {
     }
 
     @Override
-    public void hit(Point point, OnHitCallback onHitCallback) {
+    public void hit(Point point, OnHitListener onHitListener) {
 
     }
 }

@@ -12,7 +12,7 @@ import com.mutaki.hexadraw.model.events.ElementHitEvent;
 import com.mutaki.hexadraw.model.JunctionBoxFactory;
 import com.mutaki.hexadraw.model.Element;
 
-public class Canvas implements OnHitCallback {
+public class Canvas implements OnHitListener {
 
     private final Circuit circuit;
     private CanvasPanel canvasPanel;

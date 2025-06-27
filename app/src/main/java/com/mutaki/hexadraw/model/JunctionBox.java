@@ -10,7 +10,7 @@ import java.awt.geom.Path2D;
 import java.util.Set;
 
 import com.mutaki.hexadraw.JunctionPoint;
-import com.mutaki.hexadraw.canvas.OnHitCallback;
+import com.mutaki.hexadraw.canvas.OnHitListener;
 import com.mutaki.hexadraw.model.document.Document;
 import com.mutaki.hexadraw.model.document.JunctionBoxDocument;
 
@@ -91,7 +91,7 @@ public class JunctionBox implements Element {
     }
 
     @Override
-    public void hit(Point point, OnHitCallback onHitCallback) {
-        junctionPoints.forEach(junctionPoint -> junctionPoint.hit(point, onHitCallback));
+    public void hit(Point point, OnHitListener onHitListener) {
+        junctionPoints.forEach(junctionPoint -> junctionPoint.hit(point, onHitListener));
     }
 }

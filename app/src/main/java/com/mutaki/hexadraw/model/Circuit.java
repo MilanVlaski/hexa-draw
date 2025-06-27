@@ -4,7 +4,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mutaki.hexadraw.canvas.OnHitCallback;
+import com.mutaki.hexadraw.canvas.OnHitListener;
 import com.mutaki.hexadraw.model.document.CircuitDocument;
 
 public class Circuit implements Documentable<CircuitDocument> {
@@ -51,7 +51,7 @@ public class Circuit implements Documentable<CircuitDocument> {
     }
 
     // TODO extract to interface, called
-    public void hit(Point point, OnHitCallback onHitCallback) {
-        elements.forEach(el -> el.hit(point, onHitCallback));
+    public void hit(Point point, OnHitListener onHitListener) {
+        elements.forEach(el -> el.hit(point, onHitListener));
     }
 }

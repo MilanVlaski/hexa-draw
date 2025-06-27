@@ -1,6 +1,6 @@
 package com.mutaki.hexadraw;
 
-import com.mutaki.hexadraw.canvas.OnHitCallback;
+import com.mutaki.hexadraw.canvas.OnHitListener;
 import com.mutaki.hexadraw.model.Element;
 import com.mutaki.hexadraw.model.events.ElementHitEvent;
 import com.mutaki.hexadraw.model.events.ElementType;
@@ -48,9 +48,9 @@ public class JunctionPoint implements Element {
     }
 
     @Override
-    public void hit(Point point, OnHitCallback onHitCallback) {
+    public void hit(Point point, OnHitListener onHitListener) {
         if(bounds.contains(point)) {
-            onHitCallback.hitSuccessful(new ElementHitEvent(ElementType.Connectee, this));
+            onHitListener.hitSuccessful(new ElementHitEvent(ElementType.Connectee, this));
         }
     }
 }
