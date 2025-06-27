@@ -19,18 +19,18 @@ public class JunctionBox implements Element {
     private final int height;
     private final Point location;
     private final Rectangle bounds;
-    private final Set<com.mutaki.hexadraw.Element> junctionPoints;
+    private final Set<com.mutaki.hexadraw.JunctionBox> junctionPoints;
 
     public JunctionBox(Point location) {
         this(location, junctionPoints(location));
     }
 
     // TODO make this give appropriate default Junction points
-    private static Set<com.mutaki.hexadraw.Element> junctionPoints(Point location) {
-        return Set.of(new com.mutaki.hexadraw.Element(location));
+    private static Set<com.mutaki.hexadraw.JunctionBox> junctionPoints(Point location) {
+        return Set.of(new com.mutaki.hexadraw.JunctionBox(location));
     }
 
-    public JunctionBox(Point location, Set<com.mutaki.hexadraw.Element> junctionPoints) {
+    public JunctionBox(Point location, Set<com.mutaki.hexadraw.JunctionBox> junctionPoints) {
         this.location = location;
         this.junctionPoints = junctionPoints;
         this.width = 200;

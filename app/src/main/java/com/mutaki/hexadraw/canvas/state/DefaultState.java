@@ -1,16 +1,17 @@
-package com.mutaki.hexadraw.canvas;
+package com.mutaki.hexadraw.canvas.state;
 
+import com.mutaki.hexadraw.canvas.Canvas;
 import com.mutaki.hexadraw.model.Circuit;
-import com.mutaki.hexadraw.model.ElementHitEvent;
+import com.mutaki.hexadraw.model.events.ElementHitEvent;
 
 import java.awt.Point;
 
-class DefaultState implements CanvasState {
+public class DefaultState implements CanvasState {
 
     private final Circuit circuit;
     private final Canvas canvas;
 
-    DefaultState(Circuit circuit, Canvas canvas) {
+    public DefaultState(Circuit circuit, Canvas canvas) {
         this.circuit = circuit;
         this.canvas = canvas;
     }

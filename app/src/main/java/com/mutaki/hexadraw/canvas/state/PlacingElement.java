@@ -1,12 +1,14 @@
-package com.mutaki.hexadraw.canvas;
+package com.mutaki.hexadraw.canvas.state;
 
 import java.awt.Point;
 
+import com.mutaki.hexadraw.canvas.Canvas;
+import com.mutaki.hexadraw.canvas.CanvasPanel;
 import com.mutaki.hexadraw.model.Circuit;
-import com.mutaki.hexadraw.model.ElementHitEvent;
+import com.mutaki.hexadraw.model.events.ElementHitEvent;
 import com.mutaki.hexadraw.model.JunctionBoxFactory;
 
-class PlacingElement implements CanvasState {
+public class PlacingElement implements CanvasState {
 
     private final JunctionBoxFactory junctionBoxFactory;
     private final Circuit circuit;
@@ -16,8 +18,8 @@ class PlacingElement implements CanvasState {
     // This JBox factory is probably an abstraction called SoloElementFactory or
     // ElementFactory. Shuld stay like this because I don't know if Placing only
     // applies to single elements, or single elements AND connectors.
-    PlacingElement(JunctionBoxFactory junctionBoxFactory, Circuit circuit,
-                   CanvasPanel canvasPanel, Canvas canvas) {
+    public PlacingElement(JunctionBoxFactory junctionBoxFactory, Circuit circuit,
+                          CanvasPanel canvasPanel, Canvas canvas) {
         this.junctionBoxFactory = junctionBoxFactory;
         this.circuit = circuit;
         this.canvasPanel = canvasPanel;

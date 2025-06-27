@@ -3,8 +3,12 @@ package com.mutaki.hexadraw.canvas;
 import java.awt.Graphics;
 import java.awt.Point;
 
+import com.mutaki.hexadraw.canvas.state.CanvasState;
+import com.mutaki.hexadraw.canvas.state.ConnectingElements;
+import com.mutaki.hexadraw.canvas.state.DefaultState;
+import com.mutaki.hexadraw.canvas.state.PlacingElement;
 import com.mutaki.hexadraw.model.Circuit;
-import com.mutaki.hexadraw.model.ElementHitEvent;
+import com.mutaki.hexadraw.model.events.ElementHitEvent;
 import com.mutaki.hexadraw.model.JunctionBoxFactory;
 import com.mutaki.hexadraw.model.Element;
 
@@ -31,7 +35,7 @@ public class Canvas implements OnHitCallback {
         this.state = new PlacingElement(junctionBoxFactory, circuit, canvasPanel, this);
     }
 
-    void resetState() {
+    public void resetState() {
         state = new DefaultState(circuit, this);
     }
 

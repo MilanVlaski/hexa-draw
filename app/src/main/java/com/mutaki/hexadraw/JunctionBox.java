@@ -1,13 +1,13 @@
 package com.mutaki.hexadraw;
 
 import com.mutaki.hexadraw.canvas.OnHitCallback;
-import com.mutaki.hexadraw.model.ElementHitEvent;
-import com.mutaki.hexadraw.model.ElementType;
+import com.mutaki.hexadraw.model.events.ElementHitEvent;
+import com.mutaki.hexadraw.model.events.ElementType;
 import com.mutaki.hexadraw.model.document.Document;
 
 import java.awt.*;
 
-public class Element implements com.mutaki.hexadraw.model.Element {
+public class JunctionBox implements com.mutaki.hexadraw.model.Element {
 
     private final int width;
     private final int height;
@@ -26,7 +26,7 @@ public class Element implements com.mutaki.hexadraw.model.Element {
 
     private final Point location;
 
-    public Element(Point location) {
+    public JunctionBox(Point location) {
         this.location = location;
         width = 20;
         height = 20;
@@ -37,7 +37,7 @@ public class Element implements com.mutaki.hexadraw.model.Element {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
 
-        Element that = (Element) o;
+        JunctionBox that = (JunctionBox) o;
         return location.equals(that.location);
     }
 

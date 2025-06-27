@@ -1,4 +1,6 @@
-package com.mutaki.hexadraw.model;
+package com.mutaki.hexadraw.model.events;
+
+import com.mutaki.hexadraw.model.Element;
 
 public class ElementHitEvent {
     public final ElementType elementType;

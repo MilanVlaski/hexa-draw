@@ -3,7 +3,6 @@ package com.mutaki.hexadraw;
 import com.mutaki.hexadraw.canvas.Canvas;
 import com.mutaki.hexadraw.canvas.CanvasPanel;
 import com.mutaki.hexadraw.model.Circuit;
-import com.mutaki.hexadraw.model.JunctionBox;
 import com.mutaki.hexadraw.model.JunctionBoxFactory;
 import org.junit.jupiter.api.Test;
 
@@ -46,10 +45,10 @@ public class CanvasTest {
 
 
         when(jboxFactory.create(jbox1Location)).thenReturn(
-            new JunctionBox(jbox1Location, Set.of(new Element(jpoint1Location)))
+            new com.mutaki.hexadraw.model.JunctionBox(jbox1Location, Set.of(new JunctionBox(jpoint1Location)))
         );
         when(jboxFactory.create(jbox2Location)).thenReturn(
-            new JunctionBox(jbox2Location, Set.of(new Element(jpoint2Location)))
+            new com.mutaki.hexadraw.model.JunctionBox(jbox2Location, Set.of(new JunctionBox(jpoint2Location)))
         );
 
         Canvas canvas = new Canvas(circuit);
