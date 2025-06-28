@@ -16,6 +16,10 @@ import com.mutaki.hexadraw.model.document.JunctionBoxDocument;
 
 public class JunctionBox implements Element {
 
+    // Please refrain from using the default width and height outside of constructors
+    private static final int defaultWidth = 200;
+    private static final int defaultHeight = 100;
+
     private final int width;
     private final int height;
     private final Point location;
@@ -23,20 +27,42 @@ public class JunctionBox implements Element {
     private final Set<JunctionPoint> junctionPoints;
 
     public JunctionBox(Point location) {
-        this(location, junctionPoints(location));
-    }
-
-    // TODO make this give appropriate default Junction points
-    private static Set<JunctionPoint> junctionPoints(Point location) {
-        return Set.of(new JunctionPoint(location));
+        this(location, junctionPoints(location, defaultWidth, defaultHeight), defaultWidth, defaultHeight);
     }
 
     public JunctionBox(Point location, Set<JunctionPoint> junctionPoints) {
+        this(location, junctionPoints, defaultWidth, defaultHeight);
+    }
+
+    public JunctionBox(Point location, Set<JunctionPoint> junctionPoints, int width, int height) {
         this.location = location;
         this.junctionPoints = junctionPoints;
-        this.width = 200;
-        this.height = 100;
-        this.bounds = new Rectangle(location.x - width/2, location.y - height/2, width, height);
+        this.width = width;
+        this.height = height;
+        this.bounds = new Rectangle(location.x - width / 2, location.y - height / 2, width, height);
+    }
+
+    private static Set<JunctionPoint> junctionPoints(Point location, int width, int height) {
+        // 1. Mutable apis suck
+        // 2. point.moveLeft(10) returning a Point, would be great,
+        // requires custom work
+        // etc etc
+        Point top = location.getLocation();
+        Point bottom = location.getLocation();
+        Point right = location.getLocation();
+        Point left = location.getLocation();
+
+        int offset = 10;
+        top.translate(0, height / 2 - offset);
+        bottom.translate(0, height / 2 + offset);
+        right.translate(width / 2 + offset, 0);
+        left.translate(width / 2 - offset, 0);
+        return Set.of(
+            new JunctionPoint(top),
+            new JunctionPoint(right),
+            new JunctionPoint(bottom),
+            new JunctionPoint(left)
+        );
     }
 
     @Override
@@ -50,23 +76,16 @@ public class JunctionBox implements Element {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
             RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // Calculate centered rectangle position (200x100)
-        int rectX = location.x - 100; // Center horizontally
-        int rectY = location.y - 50; // Center vertically
-        // Draw the rectangle
         g2d.setColor(Color.LIGHT_GRAY);
         g2d.fill(bounds);
         g2d.setColor(Color.BLACK);
         g2d.draw(bounds);
 
-        // Draw the electricity symbol centered at location
         drawElectricitySymbol(g2d);
     }
 
 
     private void drawElectricitySymbol(Graphics2D g2d) {
-        int centerX = location.x;
-        int centerY = location.y;
         int size = 50; // Fixed size for symbol
 
         // Create the lightning bolt path
@@ -77,9 +96,9 @@ public class JunctionBox implements Element {
         double[] yPoints = {-0.8, 0, 0, 0.8, 0.8, 0};
 
         // Scale and position points
-        bolt.moveTo(centerX + xPoints[0] * size, centerY + yPoints[0] * size);
+        bolt.moveTo(location.x + xPoints[0] * size, location.y + yPoints[0] * size);
         for (int i = 1; i < xPoints.length; i++) {
-            bolt.lineTo(centerX + xPoints[i] * size, centerY + yPoints[i] * size);
+            bolt.lineTo(location.x + xPoints[i] * size, location.y + yPoints[i] * size);
         }
         bolt.closePath();
 
