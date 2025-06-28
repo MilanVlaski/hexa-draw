@@ -13,6 +13,9 @@ public class JunctionPoint implements Element {
     private final int width;
     private final int height;
     private final Rectangle bounds;
+    private final Point location;
+    private final Point topLeft;
+
 
     @Override
     public Document<?> toDocument() {
@@ -22,16 +25,19 @@ public class JunctionPoint implements Element {
 
     @Override
     public void paint(Graphics g) {
-        // TODO
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.BLACK);
+        g2d.drawOval(topLeft.x, topLeft.y, width, height);
     }
-
-    private final Point location;
 
     public JunctionPoint(Point location) {
         this.location = location;
-        width = 20;
-        height = 20;
-        this.bounds = new Rectangle(location.x - 10, location.y - 10, width, height);
+        this.width = 20;
+        this.height = 20;
+        this.topLeft = location.getLocation();
+        topLeft.translate(-width/2, -height/2);
+
+        this.bounds = new Rectangle(topLeft.x, topLeft.y, width, height);
     }
 
     @Override

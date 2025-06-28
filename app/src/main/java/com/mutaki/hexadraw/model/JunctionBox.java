@@ -52,11 +52,11 @@ public class JunctionBox implements Element {
         Point right = location.getLocation();
         Point left = location.getLocation();
 
-        int offset = 10;
-        top.translate(0, height / 2 - offset);
+        int offset = 15;
+        top.translate(0, -(height / 2 + offset));
         bottom.translate(0, height / 2 + offset);
         right.translate(width / 2 + offset, 0);
-        left.translate(width / 2 - offset, 0);
+        left.translate(-(width / 2 + offset), 0);
         return Set.of(
             new JunctionPoint(top),
             new JunctionPoint(right),
@@ -82,6 +82,7 @@ public class JunctionBox implements Element {
         g2d.draw(bounds);
 
         drawElectricitySymbol(g2d);
+        junctionPoints.forEach(p -> p.paint(g2d));
     }
 
 
