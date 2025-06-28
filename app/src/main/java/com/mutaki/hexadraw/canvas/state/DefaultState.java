@@ -24,7 +24,7 @@ public class DefaultState implements CanvasState {
     @Override
     public void hitSuccessful(ElementHitEvent event) {
         switch (event.elementType) {
-            case Connectee -> {
+            case Node -> {
                 // Junction point is our one and only connectee for now :)
                 canvas.startConnecting(event.junctionPoint);
             }

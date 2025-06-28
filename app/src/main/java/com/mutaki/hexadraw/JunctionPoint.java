@@ -50,7 +50,7 @@ public class JunctionPoint implements Element {
     @Override
     public void hit(Point point, OnHitListener onHitListener) {
         if(bounds.contains(point)) {
-            onHitListener.hitSuccessful(new ElementHitEvent(ElementType.Connectee, this));
+            onHitListener.hitSuccessful(new ElementHitEvent(ElementType.Node, this));
         }
     }
 }
