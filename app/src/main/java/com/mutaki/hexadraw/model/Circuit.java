@@ -3,6 +3,7 @@ package com.mutaki.hexadraw.model;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.mutaki.hexadraw.canvas.OnHitListener;
 import com.mutaki.hexadraw.model.document.CircuitDocument;
@@ -13,7 +14,7 @@ public class Circuit implements Documentable<CircuitDocument> {
     private final List<Element> elements;
 
     public Circuit(String name) {
-        this(name, new ArrayList<>());
+        this(name, new CopyOnWriteArrayList<>());
     }
 
     public Circuit(String name, List<Element> elements) {
@@ -50,7 +51,6 @@ public class Circuit implements Documentable<CircuitDocument> {
         elements.forEach(el -> el.paint(g));
     }
 
-    // TODO extract to interface, called
     public void hit(Point point, OnHitListener onHitListener) {
         elements.forEach(el -> el.hit(point, onHitListener));
     }
