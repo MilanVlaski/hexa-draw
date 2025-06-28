@@ -6,7 +6,8 @@ import com.mutaki.hexadraw.model.events.ElementHitEvent;
 
 import java.awt.Point;
 
-public class DefaultState implements CanvasState {
+public class
+DefaultState implements CanvasState {
 
     private final Circuit circuit;
     private final Canvas canvas;

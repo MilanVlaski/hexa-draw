@@ -3,6 +3,7 @@ package com.mutaki.hexadraw.canvas;
 import java.awt.Graphics;
 import java.awt.Point;
 
+import com.mutaki.hexadraw.JunctionPoint;
 import com.mutaki.hexadraw.canvas.state.CanvasState;
 import com.mutaki.hexadraw.canvas.state.ConnectingElements;
 import com.mutaki.hexadraw.canvas.state.DefaultState;
@@ -48,7 +49,7 @@ public class Canvas implements OnHitListener {
         state.hitSuccessful(elementHitEvent);
     }
 
-    public void startConnecting(Element junctionPoint) {
+    public void startConnecting(JunctionPoint junctionPoint) {
         this.state = new ConnectingElements(junctionPoint, circuit, canvasPanel, this);
     }
 }

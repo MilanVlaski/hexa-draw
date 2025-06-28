@@ -1,5 +1,6 @@
 package com.mutaki.hexadraw;
 
+import com.mutaki.hexadraw.model.Wire;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

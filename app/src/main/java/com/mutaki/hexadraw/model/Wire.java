@@ -1,7 +1,7 @@
-package com.mutaki.hexadraw;
+package com.mutaki.hexadraw.model;
 
+import com.mutaki.hexadraw.JunctionPoint;
 import com.mutaki.hexadraw.canvas.OnHitListener;
-import com.mutaki.hexadraw.model.Element;
 import com.mutaki.hexadraw.model.document.Document;
 
 import java.awt.*;

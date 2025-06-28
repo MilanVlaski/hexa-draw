@@ -3,7 +3,9 @@ package com.mutaki.hexadraw;
 import com.mutaki.hexadraw.canvas.Canvas;
 import com.mutaki.hexadraw.canvas.CanvasPanel;
 import com.mutaki.hexadraw.model.Circuit;
+import com.mutaki.hexadraw.model.JunctionBox;
 import com.mutaki.hexadraw.model.JunctionBoxFactory;
+import com.mutaki.hexadraw.model.Wire;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -41,19 +43,19 @@ public class CanvasTest {
 
         var jboxFactory = mock(JunctionBoxFactory.class);
         var canvasPanel = mock(CanvasPanel.class);
-        var circuit = mock(Circuit.class);
 
+        Circuit circuit = new Circuit("New Circuit");
+        var circuitSpy = spy(circuit);
+        // Spy will tell us if a Wire was added.
+        Canvas canvas = new Canvas(circuitSpy);
+        canvas.addCanvasPanel(canvasPanel);
 
         when(jboxFactory.create(jbox1Location)).thenReturn(
-            new com.mutaki.hexadraw.model.JunctionBox(jbox1Location, Set.of(new JunctionPoint(jpoint1Location)))
+            new JunctionBox(jbox1Location, Set.of(new JunctionPoint(jpoint1Location)))
         );
         when(jboxFactory.create(jbox2Location)).thenReturn(
-            new com.mutaki.hexadraw.model.JunctionBox(jbox2Location, Set.of(new JunctionPoint(jpoint2Location)))
+            new JunctionBox(jbox2Location, Set.of(new JunctionPoint(jpoint2Location)))
         );
-
-        Canvas canvas = new Canvas(circuit);
-
-        canvas.addCanvasPanel(canvasPanel);
 
         canvas.startPlacing(jboxFactory);
         canvas.clicked(jbox1Location);
@@ -64,7 +66,7 @@ public class CanvasTest {
         canvas.clicked(jpoint1Location);
         canvas.clicked(jpoint2Location);
 
-        verify(circuit).addElement(any(Wire.class));
+        verify(circuitSpy).addElement(any(Wire.class));
     }
 
 }

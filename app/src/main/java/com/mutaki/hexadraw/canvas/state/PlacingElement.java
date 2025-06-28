@@ -28,6 +28,9 @@ public class PlacingElement implements CanvasState {
 
     @Override
     public void click(Point point) {
+        // This assumes it's ok to place an element wherever you click.
+        // Adding elements on top of each other is rarely an issue.
+        // But could be troublesome in the future, for determining which one was  selected.
         var element = junctionBoxFactory.create(point);
         circuit.addElement(element);
         canvasPanel.pleaseRepaint();

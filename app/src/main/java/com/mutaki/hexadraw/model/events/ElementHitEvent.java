@@ -1,12 +1,12 @@
 package com.mutaki.hexadraw.model.events;
 
-import com.mutaki.hexadraw.model.Element;
+import com.mutaki.hexadraw.JunctionPoint;
 
 public class ElementHitEvent {
     public final ElementType elementType;
-    public final Element junctionPoint;
+    public final JunctionPoint junctionPoint;
 
-    public ElementHitEvent(ElementType elementType, Element junctionPoint) {
+    public ElementHitEvent(ElementType elementType, JunctionPoint junctionPoint) {
         this.elementType = elementType;
         this.junctionPoint = junctionPoint;
     }
