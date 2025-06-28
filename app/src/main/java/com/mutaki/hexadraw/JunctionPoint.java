@@ -13,7 +13,7 @@ public class JunctionPoint implements Element {
     private final int width;
     private final int height;
     private final Rectangle bounds;
-    private final Point location;
+    public final Point location;
     private final Point topLeft;
 
 

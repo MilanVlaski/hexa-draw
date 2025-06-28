@@ -11,7 +11,7 @@ public class Wire implements Element {
     private final JunctionPoint junctionPoint2;
 
     public Wire(JunctionPoint junctionPoint1, JunctionPoint junctionPoint2) {
-        if(junctionPoint1.equals(junctionPoint2)) {
+        if (junctionPoint1.equals(junctionPoint2)) {
             throw new IllegalArgumentException("JunctionPoints must not be equal");
         }
         this.junctionPoint1 = junctionPoint1;
@@ -26,7 +26,10 @@ public class Wire implements Element {
 
     @Override
     public void paint(Graphics g) {
-        // TODO
+        var g2d = (Graphics2D) g;
+
+        g2d.drawLine(junctionPoint1.location.x, junctionPoint1.location.y,
+                junctionPoint2.location.x, junctionPoint2.location.y);
     }
 
     @Override
