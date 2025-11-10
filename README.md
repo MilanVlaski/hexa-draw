@@ -1,15 +1,23 @@
-# hexa-draw
-Desktop graphical editor re-implemented following Ports and Adapters (hexagonal) architecture, and using outside-in TDD. 
+<img height="120" alt="image" src="https://github.com/user-attachments/assets/b628026f-acef-4e2d-aee1-667381640cd7" />
 
-# To run
-1. `./gradlew build` (omit the `./` if on windows)
-2. `./gradlew run`
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/MilanVlaski/hexa-draw/blob/main/LICENSE)
 
-# Questions to answer
-- What is MVC? Each Model should have a corresponding View into it. The Model and View should be finer grained. How does that look in practice?
-- How do Models and Views communicate by the Subscriber pattern? Should finer grained Event value objects be created? Do they carry references to Models and so on?
-- Usage of a cocktail of design patterns when drawing: State, Command, Subscriber etc. A model for drawing?
-- How does this fit into Ports and Adapters architecture, and what high level components will the app contain? (It's not just MODEL and VIEW and CONTROLLER. That's a lie.).
-- How to implement Deskto GUI organization reasonably?
-## To do
-- [x] Make ~Maven~ Gradle template
+Desktop diagramming app implemented using outside-in TDD, OO.
+
+## Purpose
+
+Learn about:
+- [Growing Object Oriented Software Guided By Tests](https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627)
+- What is MVC, really?
+- How to use events at a low level, to communicate between Models and Views, and different layers of an app.
+
+## How to run?
+
+You must have JDK 21, or newer, installed.
+1. Run `./gradlew build`
+2. Run `./gradlew run`
+
+## Status
+
+The goal of learning about some MVC patterns, and testing, has been achieved. The project is therefore finished.   
+A more useful continuation of this idea can be found in the [hexa-draw](https://github.com/MilanVlaski/hexa-draw) project.
