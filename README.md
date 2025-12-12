@@ -20,4 +20,4 @@ You must have JDK 21, or newer, installed.
 ## Status
 
 The goal of learning about some MVC patterns, and testing, has been achieved. The project is therefore finished.   
-A more useful continuation of this idea can be found in the [hexa-draw](https://github.com/MilanVlaski/hexa-draw) project.
+A more useful continuation of this idea can be found in the [c4gui](https://github.com/MilanVlaski/c4gui) project.
